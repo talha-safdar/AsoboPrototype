@@ -69,28 +69,48 @@ int main()
 	*/
 	float vertices[] =
 	{
-		0.0f,  0.5f, 0.0f, // top vertex
-		-0.5f, -0.5f, 0.0f, // bottom left vertex
-		0.5f, -0.5f, 0.0f  // bottom right vertex
+		//0.0f,  0.5f, 0.0f, // top vertex
+		//-0.5f, -0.5f, 0.0f, // bottom left vertex
+		//0.5f, -0.5f, 0.0f  // bottom right vertex
+
+			// x      y      z
+		 0.5f,  0.5f,  0.0f,   // 0 top-right
+		 0.5f, -0.5f,  0.0f,   // 1 bottom-right
+		-0.5f, -0.5f,  0.0f,   // 2 bottom-left
+		-0.5f,  0.5f,  0.0f    // 3 top-left
+	};
+
+	unsigned int indices[] =
+	{
+		0, 1, 3,
+		1, 2, 3
 	};
 
 	// VBO = actual vertex data
 	// VAO = remembers how OpenGL should interpret that vertex data
 	// Shader = tells GPU how to process/draw it
+	// VBO = vertex information
+    // EBO = which vertices form the triangles
+	// VAO = remembers the vertex / index configuration
 
 	GLuint vao = 0;
 	GLuint vbo = 0;
+	GLuint ebo = 0;
 
 	// create vertex array object
 	glGenVertexArrays(1, &vao);
 	glGenBuffers(1, &vbo);
+	glGenBuffers(1, &ebo);
 
 	// bind vertex array object
 	glBindVertexArray(vao);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
 	// upload vertex data to GPU
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	// specify vertex attributes
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
@@ -172,7 +192,8 @@ int main()
 		glUseProgram(shaderProgram);
 		glBindVertexArray(vao);
 
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		// glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 		SDL_GL_SwapWindow(window);
 	}
@@ -180,6 +201,7 @@ int main()
 	glDeleteProgram(shaderProgram);
 	glDeleteBuffers(1, &vbo);
 	glDeleteVertexArrays(1, &vao);
+	glDeleteBuffers(1, &ebo);
 	SDL_GL_DestroyContext(glContext); // destroy OpenGL context
 	SDL_DestroyWindow(window);
 	SDL_Quit();
