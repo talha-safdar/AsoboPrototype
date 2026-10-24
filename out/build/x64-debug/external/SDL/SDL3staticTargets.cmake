@@ -19,7 +19,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_cmake_targets_defined "")
 set(_cmake_targets_not_defined "")
 set(_cmake_expected_targets "")
-foreach(_cmake_expected_target IN ITEMS SDL3::SDL3-shared)
+foreach(_cmake_expected_target IN ITEMS SDL3::SDL3-static)
   list(APPEND _cmake_expected_targets "${_cmake_expected_target}")
   if(TARGET "${_cmake_expected_target}")
     list(APPEND _cmake_targets_defined "${_cmake_expected_target}")
@@ -46,24 +46,23 @@ unset(_cmake_targets_not_defined)
 unset(_cmake_expected_targets)
 
 
-# Create imported target SDL3::SDL3-shared
-add_library(SDL3::SDL3-shared SHARED IMPORTED)
+# Create imported target SDL3::SDL3-static
+add_library(SDL3::SDL3-static STATIC IMPORTED)
 
-set_target_properties(SDL3::SDL3-shared PROPERTIES
+set_target_properties(SDL3::SDL3-static PROPERTIES
   COMPATIBLE_INTERFACE_BOOL "SDL3_SHARED"
   COMPATIBLE_INTERFACE_STRING "SDL_VERSION"
-  INTERFACE_LINK_DEPENDS "C:/GitHub/Personal/AsoboPrototype/external/SDL/src/dynapi/SDL_dynapi.sym"
-  INTERFACE_LINK_LIBRARIES "SDL3::Headers"
-  INTERFACE_SDL3_SHARED "TRUE"
+  INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:kernel32>;\$<LINK_ONLY:user32>;\$<LINK_ONLY:gdi32>;\$<LINK_ONLY:winmm>;\$<LINK_ONLY:imm32>;\$<LINK_ONLY:ole32>;\$<LINK_ONLY:oleaut32>;\$<LINK_ONLY:version>;\$<LINK_ONLY:uuid>;\$<LINK_ONLY:advapi32>;\$<LINK_ONLY:setupapi>;\$<LINK_ONLY:shell32>;\$<LINK_ONLY:hid>;\$<LINK_ONLY:mincore>;\$<LINK_ONLY:dinput8>;SDL3::Headers"
+  INTERFACE_SDL3_SHARED "FALSE"
   INTERFACE_SDL_VERSION "SDL3"
   SDL_FULL_VERSION "3.5.0"
 )
 
-# Import target "SDL3::SDL3-shared" for configuration "Debug"
-set_property(TARGET SDL3::SDL3-shared APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
-set_target_properties(SDL3::SDL3-shared PROPERTIES
-  IMPORTED_IMPLIB_DEBUG "C:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/SDL3.lib"
-  IMPORTED_LOCATION_DEBUG "C:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/SDL3.dll"
+# Import target "SDL3::SDL3-static" for configuration "Debug"
+set_property(TARGET SDL3::SDL3-static APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
+set_target_properties(SDL3::SDL3-static PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "C;CXX"
+  IMPORTED_LOCATION_DEBUG "C:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/SDL3-static.lib"
   )
 
 # Make sure the targets which have been exported in some other

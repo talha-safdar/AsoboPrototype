@@ -50,7 +50,8 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						3
 					]
 				},
 				{
@@ -73,8 +74,7 @@
 					"targetIndexes" : 
 					[
 						1,
-						2,
-						3
+						2
 					]
 				}
 			],
@@ -93,7 +93,8 @@
 					"name" : "AsoboPrototype",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						3
 					]
 				},
 				{
@@ -113,8 +114,7 @@
 					"targetIndexes" : 
 					[
 						1,
-						2,
-						3
+						2
 					]
 				}
 			],
@@ -123,15 +123,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "AsoboPrototype::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-AsoboPrototype-Debug-59ef6ef436207be811e5.json",
+					"jsonFile" : "target-AsoboPrototype-Debug-4c619048e4dbc1de35d3.json",
 					"name" : "AsoboPrototype",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
-					"id" : "SDL3-shared::@325f9cd2ad4d12a63863",
-					"jsonFile" : "target-SDL3-shared-Debug-74f70d0a0179f59d4441.json",
-					"name" : "SDL3-shared",
+					"id" : "SDL3-static::@325f9cd2ad4d12a63863",
+					"jsonFile" : "target-SDL3-static-Debug-498c4eb0c47bf1d1143a.json",
+					"name" : "SDL3-static",
 					"projectIndex" : 1
 				},
 				{
@@ -142,11 +142,11 @@
 					"projectIndex" : 1
 				},
 				{
-					"directoryIndex" : 1,
-					"id" : "SDL_uclibc::@325f9cd2ad4d12a63863",
-					"jsonFile" : "target-SDL_uclibc-Debug-783a4c9388e9cb734d2c.json",
-					"name" : "SDL_uclibc",
-					"projectIndex" : 1
+					"directoryIndex" : 0,
+					"id" : "glad::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-glad-Debug-82bc3ef23c83b94bdf2d.json",
+					"name" : "glad",
+					"projectIndex" : 0
 				}
 			]
 		}

@@ -12,19 +12,28 @@ endif()
 project ("AsoboPrototype")
 
 # Add source to this project's executable.
-add_executable (AsoboPrototype "AsoboPrototype.cpp" "AsoboPrototype.h")
-add_subdirectory(external/SDL EXCLUDE_FROM_ALL)
-target_link_libraries(AsoboPrototype PRIVATE SDL3::SDL3)
-if(WIN32)
-    add_custom_command(
-        TARGET AsoboPrototype POST_BUILD
-        COMMAND "${CMAKE_COMMAND}" -E copy_if_different
-            $<TARGET_FILE:SDL3::SDL3-shared>
-            $<TARGET_FILE_DIR:AsoboPrototype>
-        VERBATIM
-    )
-endif()
+add_executable (AsoboPrototype "src/AsoboPrototype.cpp" "src/AsoboPrototype.h")
 
+# GLAD
+add_library(glad STATIC
+    external/glad/src/gl.c
+)
+
+target_include_directories(glad PUBLIC
+    external/glad/include
+)
+
+# SDL
+set(SDL_SHARED OFF CACHE BOOL "" FORCE)
+set(SDL_STATIC ON CACHE BOOL "" FORCE)
+
+target_link_libraries(AsoboPrototype
+    PRIVATE
+        SDL3::SDL3-static
+        glad
+)
+
+add_subdirectory(external/SDL EXCLUDE_FROM_ALL)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET AsoboPrototype PROPERTY CXX_STANDARD 20)

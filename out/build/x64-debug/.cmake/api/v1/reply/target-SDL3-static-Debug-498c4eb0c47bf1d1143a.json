@@ -1,14 +1,18 @@
 {
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
 	"artifacts" : 
 	[
 		{
-			"path" : "external/SDL/SDL3.dll"
-		},
-		{
-			"path" : "external/SDL/SDL3.lib"
-		},
-		{
-			"path" : "external/SDL/SDL3.pdb"
+			"path" : "external/SDL/SDL3-static.lib"
 		}
 	],
 	"backtrace" : 1,
@@ -50,13 +54,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 511,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 1380,
+				"line" : 519,
 				"parent" : 0
 			},
 			{
@@ -69,13 +67,13 @@
 				"command" : 2,
 				"file" : 1,
 				"line" : 100,
-				"parent" : 3
+				"parent" : 2
 			},
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 72,
-				"parent" : 4
+				"line" : 80,
+				"parent" : 3
 			},
 			{
 				"command" : 3,
@@ -87,18 +85,18 @@
 				"command" : 2,
 				"file" : 1,
 				"line" : 100,
-				"parent" : 6
+				"parent" : 5
 			},
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 72,
-				"parent" : 7
+				"line" : 80,
+				"parent" : 6
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 4367,
+				"line" : 4396,
 				"parent" : 0
 			},
 			{
@@ -110,19 +108,19 @@
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 513,
+				"line" : 521,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 2,
 				"line" : 46,
-				"parent" : 11
+				"parent" : 10
 			},
 			{
 				"command" : 7,
 				"file" : 0,
-				"line" : 514,
+				"line" : 522,
 				"parent" : 0
 			},
 			{
@@ -134,8 +132,14 @@
 			{
 				"command" : 7,
 				"file" : 1,
-				"line" : 143,
-				"parent" : 14
+				"line" : 146,
+				"parent" : 13
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 4389,
+				"parent" : 0
 			},
 			{
 				"command" : 8,
@@ -146,7 +150,7 @@
 			{
 				"command" : 7,
 				"file" : 1,
-				"line" : 143,
+				"line" : 146,
 				"parent" : 16
 			},
 			{
@@ -158,13 +162,13 @@
 			{
 				"command" : 9,
 				"file" : 1,
-				"line" : 191,
+				"line" : 194,
 				"parent" : 18
 			},
 			{
 				"command" : 9,
 				"file" : 0,
-				"line" : 4362,
+				"line" : 4391,
 				"parent" : 0
 			},
 			{
@@ -176,7 +180,7 @@
 			{
 				"command" : 9,
 				"file" : 1,
-				"line" : 191,
+				"line" : 194,
 				"parent" : 21
 			},
 			{
@@ -188,13 +192,13 @@
 			{
 				"command" : 9,
 				"file" : 1,
-				"line" : 191,
+				"line" : 194,
 				"parent" : 23
 			},
 			{
 				"command" : 11,
 				"file" : 0,
-				"line" : 4381,
+				"line" : 4407,
 				"parent" : 0
 			},
 			{
@@ -206,7 +210,7 @@
 			{
 				"command" : 12,
 				"file" : 1,
-				"line" : 109,
+				"line" : 112,
 				"parent" : 26
 			},
 			{
@@ -218,8 +222,14 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
+				"line" : 35,
 				"parent" : 28
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1386,
+				"parent" : 0
 			},
 			{
 				"command" : 15,
@@ -230,8 +240,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 30
+				"line" : 35,
+				"parent" : 31
 			},
 			{
 				"command" : 15,
@@ -242,8 +252,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 32
+				"line" : 35,
+				"parent" : 33
 			},
 			{
 				"command" : 15,
@@ -254,8 +264,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 34
+				"line" : 35,
+				"parent" : 35
 			},
 			{
 				"command" : 15,
@@ -266,8 +276,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 36
+				"line" : 35,
+				"parent" : 37
 			},
 			{
 				"command" : 15,
@@ -278,8 +288,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 38
+				"line" : 35,
+				"parent" : 39
 			},
 			{
 				"command" : 15,
@@ -290,8 +300,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 40
+				"line" : 35,
+				"parent" : 41
 			},
 			{
 				"command" : 15,
@@ -302,8 +312,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 42
+				"line" : 35,
+				"parent" : 43
 			},
 			{
 				"command" : 15,
@@ -314,8 +324,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 44
+				"line" : 35,
+				"parent" : 45
 			},
 			{
 				"command" : 15,
@@ -326,8 +336,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 46
+				"line" : 35,
+				"parent" : 47
 			},
 			{
 				"command" : 16,
@@ -338,8 +348,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 45,
-				"parent" : 48
+				"line" : 48,
+				"parent" : 49
 			},
 			{
 				"command" : 15,
@@ -350,8 +360,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 50
+				"line" : 35,
+				"parent" : 51
 			},
 			{
 				"command" : 15,
@@ -362,8 +372,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 52
+				"line" : 35,
+				"parent" : 53
 			},
 			{
 				"command" : 15,
@@ -374,8 +384,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 54
+				"line" : 35,
+				"parent" : 55
 			},
 			{
 				"command" : 16,
@@ -386,8 +396,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 45,
-				"parent" : 56
+				"line" : 48,
+				"parent" : 57
 			},
 			{
 				"command" : 15,
@@ -398,8 +408,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 58
+				"line" : 35,
+				"parent" : 59
 			},
 			{
 				"command" : 16,
@@ -410,8 +420,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 45,
-				"parent" : 60
+				"line" : 48,
+				"parent" : 61
 			},
 			{
 				"command" : 15,
@@ -422,8 +432,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 62
+				"line" : 35,
+				"parent" : 63
 			},
 			{
 				"command" : 15,
@@ -434,8 +444,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 64
+				"line" : 35,
+				"parent" : 65
 			},
 			{
 				"command" : 15,
@@ -446,8 +456,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 66
+				"line" : 35,
+				"parent" : 67
 			},
 			{
 				"command" : 15,
@@ -458,8 +468,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 68
+				"line" : 35,
+				"parent" : 69
 			},
 			{
 				"command" : 15,
@@ -470,8 +480,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 70
+				"line" : 35,
+				"parent" : 71
 			},
 			{
 				"command" : 15,
@@ -482,8 +492,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 72
+				"line" : 35,
+				"parent" : 73
 			},
 			{
 				"command" : 15,
@@ -494,8 +504,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 74
+				"line" : 35,
+				"parent" : 75
 			},
 			{
 				"command" : 15,
@@ -506,8 +516,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 76
+				"line" : 35,
+				"parent" : 77
 			},
 			{
 				"command" : 15,
@@ -518,8 +528,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 78
+				"line" : 35,
+				"parent" : 79
 			},
 			{
 				"command" : 17,
@@ -531,25 +541,25 @@
 				"command" : 15,
 				"file" : 3,
 				"line" : 1306,
-				"parent" : 80
+				"parent" : 81
 			},
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 81
+				"line" : 35,
+				"parent" : 82
 			},
 			{
 				"command" : 15,
 				"file" : 3,
 				"line" : 1307,
-				"parent" : 80
+				"parent" : 81
 			},
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 83
+				"line" : 35,
+				"parent" : 84
 			},
 			{
 				"command" : 15,
@@ -560,8 +570,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 85
+				"line" : 35,
+				"parent" : 86
 			},
 			{
 				"command" : 15,
@@ -572,8 +582,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 87
+				"line" : 35,
+				"parent" : 88
 			},
 			{
 				"command" : 15,
@@ -584,8 +594,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 89
+				"line" : 35,
+				"parent" : 90
 			},
 			{
 				"command" : 15,
@@ -596,20 +606,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 91
-			},
-			{
-				"command" : 15,
-				"file" : 0,
-				"line" : 2764,
-				"parent" : 0
-			},
-			{
-				"command" : 14,
-				"file" : 1,
-				"line" : 32,
-				"parent" : 93
+				"line" : 35,
+				"parent" : 92
 			},
 			{
 				"command" : 16,
@@ -620,8 +618,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 45,
-				"parent" : 95
+				"line" : 48,
+				"parent" : 94
 			},
 			{
 				"command" : 16,
@@ -632,8 +630,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 45,
-				"parent" : 97
+				"line" : 48,
+				"parent" : 96
 			},
 			{
 				"command" : 16,
@@ -644,8 +642,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 45,
-				"parent" : 99
+				"line" : 48,
+				"parent" : 98
 			},
 			{
 				"command" : 16,
@@ -656,8 +654,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 45,
-				"parent" : 101
+				"line" : 48,
+				"parent" : 100
 			},
 			{
 				"command" : 15,
@@ -668,8 +666,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 103
+				"line" : 35,
+				"parent" : 102
 			},
 			{
 				"command" : 15,
@@ -680,8 +678,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 105
+				"line" : 35,
+				"parent" : 104
 			},
 			{
 				"command" : 15,
@@ -692,8 +690,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 107
+				"line" : 35,
+				"parent" : 106
 			},
 			{
 				"command" : 15,
@@ -704,8 +702,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 109
+				"line" : 35,
+				"parent" : 108
 			},
 			{
 				"command" : 15,
@@ -716,8 +714,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 111
+				"line" : 35,
+				"parent" : 110
 			},
 			{
 				"command" : 15,
@@ -728,8 +726,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 32,
-				"parent" : 113
+				"line" : 35,
+				"parent" : 112
 			},
 			{
 				"command" : 16,
@@ -740,8 +738,8 @@
 			{
 				"command" : 14,
 				"file" : 1,
-				"line" : 45,
-				"parent" : 115
+				"line" : 48,
+				"parent" : 114
 			}
 		]
 	},
@@ -753,11 +751,7 @@
 	"compileDependencies" : 
 	[
 		{
-			"backtrace" : 2,
-			"id" : "SDL_uclibc::@325f9cd2ad4d12a63863"
-		},
-		{
-			"backtrace" : 9,
+			"backtrace" : 8,
 			"id" : "SDL3_Headers::@325f9cd2ad4d12a63863"
 		}
 	],
@@ -770,37 +764,38 @@
 					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 9,
 					"fragment" : "/utf-8"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 11,
 					"fragment" : "/W3"
 				},
 				{
-					"fragment" : "/YcC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.hxx /FpC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/.//cmake_pch.cxx.pch /FIC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.hxx"
+					"fragment" : "/YcC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.hxx /FpC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/.//cmake_pch.cxx.pch /FIC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.hxx"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"define" : "DEBUG"
 				},
 				{
-					"define" : "DLL_EXPORT"
-				},
-				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MAJOR_VERSION=3"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MICRO_VERSION=0"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MINOR_VERSION=5"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "SDL_STATIC_LIB"
 				},
 				{
 					"backtrace" : 17,
@@ -808,9 +803,6 @@
 				},
 				{
 					"define" : "_MBCS"
-				},
-				{
-					"define" : "_WINDLL"
 				}
 			],
 			"includes" : 
@@ -862,37 +854,38 @@
 					"fragment" : "/DWIN32 /D_WINDOWS /W3 /MDd /Ob0 /Od /RTC1 -ZI"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 9,
 					"fragment" : "/utf-8"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 11,
 					"fragment" : "/W3"
 				},
 				{
-					"fragment" : "/YcC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.h /FpC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/.//cmake_pch.c.pch /FIC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.h"
+					"fragment" : "/YcC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.h /FpC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/.//cmake_pch.c.pch /FIC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.h"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"define" : "DEBUG"
 				},
 				{
-					"define" : "DLL_EXPORT"
-				},
-				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MAJOR_VERSION=3"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MICRO_VERSION=0"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MINOR_VERSION=5"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "SDL_STATIC_LIB"
 				},
 				{
 					"backtrace" : 17,
@@ -900,9 +893,6 @@
 				},
 				{
 					"define" : "_MBCS"
-				},
-				{
-					"define" : "_WINDLL"
 				}
 			],
 			"includes" : 
@@ -962,37 +952,38 @@
 					"fragment" : "/DWIN32 /D_WINDOWS /W3 /MDd /Ob0 /Od /RTC1 -ZI"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 9,
 					"fragment" : "/utf-8"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 11,
 					"fragment" : "/W3"
 				},
 				{
-					"fragment" : "/YuC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.h /FpC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/.//cmake_pch.c.pch /FIC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.h"
+					"fragment" : "/YuC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.h /FpC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/.//cmake_pch.c.pch /FIC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.h"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"define" : "DEBUG"
 				},
 				{
-					"define" : "DLL_EXPORT"
-				},
-				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MAJOR_VERSION=3"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MICRO_VERSION=0"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MINOR_VERSION=5"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "SDL_STATIC_LIB"
 				},
 				{
 					"backtrace" : 17,
@@ -1000,9 +991,6 @@
 				},
 				{
 					"define" : "_MBCS"
-				},
-				{
-					"define" : "_WINDLL"
 				}
 			],
 			"includes" : 
@@ -1191,61 +1179,63 @@
 				320,
 				323,
 				326,
+				327,
 				328,
+				329,
 				330,
 				331,
+				332,
 				333,
+				334,
 				335,
+				336,
 				337,
+				338,
+				339,
+				340,
+				341,
 				342,
+				343,
 				344,
+				345,
 				346,
+				347,
 				348,
+				349,
 				350,
-				352,
+				351,
 				353,
-				354,
+				355,
 				356,
 				358,
-				361,
-				363,
-				365,
+				360,
+				362,
+				367,
 				369,
 				371,
 				373,
 				375,
 				377,
+				378,
 				379,
 				381,
 				383,
-				385,
-				387,
-				389,
-				392,
+				386,
+				388,
+				390,
 				394,
 				396,
-				397,
 				398,
-				399,
 				400,
-				401,
 				402,
 				404,
-				405,
 				406,
-				407,
 				408,
-				409,
-				411,
+				410,
 				412,
-				413,
 				414,
-				415,
-				416,
 				417,
-				418,
 				419,
-				420,
 				421,
 				422,
 				423,
@@ -1253,14 +1243,12 @@
 				425,
 				426,
 				427,
-				428,
 				429,
 				430,
 				431,
 				432,
 				433,
 				434,
-				435,
 				436,
 				437,
 				438,
@@ -1273,28 +1261,53 @@
 				445,
 				446,
 				447,
+				448,
 				449,
+				450,
 				451,
 				452,
+				453,
 				454,
+				455,
+				456,
 				457,
+				458,
 				459,
+				460,
 				461,
+				462,
 				463,
 				464,
 				465,
 				466,
 				467,
 				468,
+				469,
 				470,
+				471,
 				472,
 				474,
 				476,
-				478,
-				480,
+				477,
+				479,
 				482,
-				483,
-				485
+				484,
+				486,
+				487,
+				488,
+				489,
+				490,
+				491,
+				492,
+				494,
+				496,
+				498,
+				500,
+				502,
+				504,
+				506,
+				507,
+				509
 			]
 		},
 		{
@@ -1304,34 +1317,35 @@
 					"fragment" : "/DWIN32 /D_WINDOWS /W3 /MDd /Ob0 /Od /RTC1 -ZI"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 9,
 					"fragment" : "/utf-8"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 11,
 					"fragment" : "/W3"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"define" : "DEBUG"
 				},
 				{
-					"define" : "DLL_EXPORT"
-				},
-				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MAJOR_VERSION=3"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MICRO_VERSION=0"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MINOR_VERSION=5"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "SDL_STATIC_LIB"
 				},
 				{
 					"backtrace" : 17,
@@ -1339,9 +1353,6 @@
 				},
 				{
 					"define" : "_MBCS"
-				},
-				{
-					"define" : "_WINDLL"
 				}
 			],
 			"includes" : 
@@ -1401,40 +1412,41 @@
 					"fragment" : "/DWIN32 /D_WINDOWS /W3 /MDd /Ob0 /Od /RTC1 -ZI"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 9,
 					"fragment" : "/utf-8"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 11,
 					"fragment" : "/W3"
 				},
 				{
 					"fragment" : " /GL-"
 				},
 				{
-					"fragment" : "/YuC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.h /FpC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/.//cmake_pch.c.pch /FIC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.h"
+					"fragment" : "/YuC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.h /FpC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/.//cmake_pch.c.pch /FIC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.h"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"define" : "DEBUG"
 				},
 				{
-					"define" : "DLL_EXPORT"
-				},
-				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MAJOR_VERSION=3"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MICRO_VERSION=0"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MINOR_VERSION=5"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "SDL_STATIC_LIB"
 				},
 				{
 					"backtrace" : 17,
@@ -1442,9 +1454,6 @@
 				},
 				{
 					"define" : "_MBCS"
-				},
-				{
-					"define" : "_WINDLL"
 				}
 			],
 			"includes" : 
@@ -1504,37 +1513,38 @@
 					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 9,
 					"fragment" : "/utf-8"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 11,
 					"fragment" : "/W3"
 				},
 				{
-					"fragment" : "/YuC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.hxx /FpC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/.//cmake_pch.cxx.pch /FIC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.hxx"
+					"fragment" : "/YuC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.hxx /FpC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/.//cmake_pch.cxx.pch /FIC:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.hxx"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"define" : "DEBUG"
 				},
 				{
-					"define" : "DLL_EXPORT"
-				},
-				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MAJOR_VERSION=3"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MICRO_VERSION=0"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 14,
 					"define" : "SDL_BUILD_MINOR_VERSION=5"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "SDL_STATIC_LIB"
 				},
 				{
 					"backtrace" : 17,
@@ -1542,9 +1552,6 @@
 				},
 				{
 					"define" : "_MBCS"
-				},
-				{
-					"define" : "_WINDLL"
 				}
 			],
 			"includes" : 
@@ -1586,275 +1593,158 @@
 			],
 			"sourceIndexes" : 
 			[
-				340,
-				351,
-				355,
-				367,
-				456
-			]
-		},
-		{
-			"compileCommandFragments" : 
-			[
-				{
-					"fragment" : "-DWIN32 -D_DEBUG"
-				}
-			],
-			"defines" : 
-			[
-				{
-					"backtrace" : 13,
-					"define" : "DEBUG"
-				},
-				{
-					"define" : "DLL_EXPORT"
-				},
-				{
-					"backtrace" : 15,
-					"define" : "SDL_BUILD_MAJOR_VERSION=3"
-				},
-				{
-					"backtrace" : 15,
-					"define" : "SDL_BUILD_MICRO_VERSION=0"
-				},
-				{
-					"backtrace" : 15,
-					"define" : "SDL_BUILD_MINOR_VERSION=5"
-				},
-				{
-					"backtrace" : 17,
-					"define" : "USING_GENERATED_CONFIG_H"
-				},
-				{
-					"define" : "_WINDLL"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 19,
-					"path" : "C:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/include-config-debug/build_config"
-				},
-				{
-					"backtrace" : 19,
-					"path" : "C:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/external/SDL/include-revision"
-				},
-				{
-					"backtrace" : 19,
-					"path" : "C:/GitHub/Personal/AsoboPrototype/external/SDL/include"
-				},
-				{
-					"backtrace" : 20,
-					"path" : "C:/GitHub/Personal/AsoboPrototype/external/SDL/src"
-				},
-				{
-					"backtrace" : 22,
-					"isSystem" : true,
-					"path" : "C:/GitHub/Personal/AsoboPrototype/external/SDL/src/video/khronos"
-				},
-				{
-					"backtrace" : 24,
-					"isSystem" : true,
-					"path" : "C:/GitHub/Personal/AsoboPrototype/external/SDL/src/core/windows/gameinput"
-				}
-			],
-			"language" : "RC",
-			"sourceIndexes" : 
-			[
-				462
+				365,
+				376,
+				380,
+				392,
+				481
 			]
 		}
 	],
-	"dependencies" : 
-	[
-		{
-			"backtrace" : 2,
-			"id" : "SDL_uclibc::@325f9cd2ad4d12a63863"
-		}
-	],
-	"id" : "SDL3-shared::@325f9cd2ad4d12a63863",
+	"id" : "SDL3-static::@325f9cd2ad4d12a63863",
 	"interfaceCompileDependencies" : 
 	[
 		{
-			"backtrace" : 9,
+			"backtrace" : 8,
 			"id" : "SDL3_Headers::@325f9cd2ad4d12a63863"
 		}
 	],
 	"interfaceLinkLibraries" : 
 	[
 		{
-			"backtrace" : 9,
-			"id" : "SDL3_Headers::@325f9cd2ad4d12a63863"
-		}
-	],
-	"link" : 
-	{
-		"commandFragments" : 
-		[
-			{
-				"fragment" : "/machine:x64 /debug /INCREMENTAL",
-				"role" : "flags"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "external\\SDL\\SDL_uclibc.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "kernel32.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "user32.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "gdi32.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "winmm.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "imm32.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "ole32.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "oleaut32.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "version.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "uuid.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "advapi32.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "setupapi.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "shell32.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "hid.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "mincore.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 8,
-				"fragment" : "dinput8.lib",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
-				"role" : "libraries"
-			}
-		],
-		"language" : "CXX"
-	},
-	"linkLibraries" : 
-	[
-		{
-			"backtrace" : 2,
-			"id" : "SDL_uclibc::@325f9cd2ad4d12a63863"
-		},
-		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "kernel32"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "user32"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "gdi32"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "winmm"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "imm32"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "ole32"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "oleaut32"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "version"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "uuid"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "advapi32"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "setupapi"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "shell32"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "hid"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 4,
 			"fragment" : "mincore"
 		},
 		{
-			"backtrace" : 8,
+			"backtrace" : 7,
 			"fragment" : "dinput8"
 		},
 		{
-			"backtrace" : 9,
+			"backtrace" : 8,
 			"id" : "SDL3_Headers::@325f9cd2ad4d12a63863"
 		}
 	],
-	"name" : "SDL3-shared",
-	"nameOnDisk" : "SDL3.dll",
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 4,
+			"fragment" : "kernel32"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "user32"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "gdi32"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "winmm"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "imm32"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "ole32"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "oleaut32"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "version"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "uuid"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "advapi32"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "setupapi"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "shell32"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "hid"
+		},
+		{
+			"backtrace" : 4,
+			"fragment" : "mincore"
+		},
+		{
+			"backtrace" : 7,
+			"fragment" : "dinput8"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "SDL3_Headers::@325f9cd2ad4d12a63863"
+		}
+	],
+	"name" : "SDL3-static",
+	"nameOnDisk" : "SDL3-static.lib",
 	"paths" : 
 	{
 		"build" : "external/SDL",
@@ -1867,7 +1757,32 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				326,
+				327,
+				328,
+				329,
+				330,
+				331,
+				332,
+				333,
+				334,
+				335,
+				336,
+				337,
+				338,
+				339,
+				340,
+				341,
+				342,
+				343,
+				344,
+				345,
+				346,
+				347,
+				348,
+				349,
+				350
 			]
 		},
 		{
@@ -2462,95 +2377,27 @@
 			"name" : "src\\audio\\dummy",
 			"sourceIndexes" : 
 			[
-				326,
-				327
+				351,
+				352
 			]
 		},
 		{
 			"name" : "src\\audio\\disk",
 			"sourceIndexes" : 
 			[
-				328,
-				329
+				353,
+				354
 			]
 		},
 		{
 			"name" : "src\\camera\\dummy",
 			"sourceIndexes" : 
 			[
-				330
-			]
-		},
-		{
-			"name" : "src\\joystick\\virtual",
-			"sourceIndexes" : 
-			[
-				331,
-				332
-			]
-		},
-		{
-			"name" : "src\\video\\dummy",
-			"sourceIndexes" : 
-			[
-				333,
-				334,
-				335,
-				336,
-				337,
-				338
-			]
-		},
-		{
-			"name" : "src\\core\\windows",
-			"sourceIndexes" : 
-			[
-				339,
-				340,
-				341,
-				342,
-				343,
-				344,
-				345,
-				346,
-				347,
-				348,
-				349,
-				350,
-				351,
-				462
-			]
-		},
-		{
-			"name" : "src\\main\\windows",
-			"sourceIndexes" : 
-			[
-				352
-			]
-		},
-		{
-			"name" : "src\\io\\windows",
-			"sourceIndexes" : 
-			[
-				353
-			]
-		},
-		{
-			"name" : "src\\misc\\windows",
-			"sourceIndexes" : 
-			[
-				354
-			]
-		},
-		{
-			"name" : "src\\core\\windows\\gameinput",
-			"sourceIndexes" : 
-			[
 				355
 			]
 		},
 		{
-			"name" : "src\\audio\\directsound",
+			"name" : "src\\joystick\\virtual",
 			"sourceIndexes" : 
 			[
 				356,
@@ -2558,21 +2405,21 @@
 			]
 		},
 		{
-			"name" : "src\\audio\\wasapi",
+			"name" : "src\\video\\dummy",
 			"sourceIndexes" : 
 			[
 				358,
-				359
-			]
-		},
-		{
-			"name" : "src\\video\\windows",
-			"sourceIndexes" : 
-			[
+				359,
 				360,
 				361,
 				362,
-				363,
+				363
+			]
+		},
+		{
+			"name" : "src\\core\\windows",
+			"sourceIndexes" : 
+			[
 				364,
 				365,
 				366,
@@ -2585,173 +2432,203 @@
 				373,
 				374,
 				375,
-				376,
-				377,
-				378,
-				379,
-				380,
+				376
+			]
+		},
+		{
+			"name" : "src\\main\\windows",
+			"sourceIndexes" : 
+			[
+				377
+			]
+		},
+		{
+			"name" : "src\\io\\windows",
+			"sourceIndexes" : 
+			[
+				378
+			]
+		},
+		{
+			"name" : "src\\misc\\windows",
+			"sourceIndexes" : 
+			[
+				379
+			]
+		},
+		{
+			"name" : "src\\core\\windows\\gameinput",
+			"sourceIndexes" : 
+			[
+				380
+			]
+		},
+		{
+			"name" : "src\\audio\\directsound",
+			"sourceIndexes" : 
+			[
 				381,
-				382,
+				382
+			]
+		},
+		{
+			"name" : "src\\audio\\wasapi",
+			"sourceIndexes" : 
+			[
 				383,
-				384,
+				384
+			]
+		},
+		{
+			"name" : "src\\video\\windows",
+			"sourceIndexes" : 
+			[
 				385,
 				386,
 				387,
 				388,
 				389,
 				390,
-				391
+				391,
+				392,
+				393,
+				394,
+				395,
+				396,
+				397,
+				398,
+				399,
+				400,
+				401,
+				402,
+				403,
+				404,
+				405,
+				406,
+				407,
+				408,
+				409,
+				410,
+				411,
+				412,
+				413,
+				414,
+				415,
+				416
 			]
 		},
 		{
 			"name" : "src\\thread\\generic",
 			"sourceIndexes" : 
 			[
-				392,
-				393,
-				394,
-				395
+				417,
+				418,
+				419,
+				420
 			]
 		},
 		{
 			"name" : "src\\thread\\windows",
 			"sourceIndexes" : 
 			[
-				396,
-				397,
-				398,
-				399,
-				400,
-				401
+				421,
+				422,
+				423,
+				424,
+				425,
+				426
 			]
 		},
 		{
 			"name" : "src\\sensor\\windows",
 			"sourceIndexes" : 
 			[
-				402,
-				403
+				427,
+				428
 			]
 		},
 		{
 			"name" : "src\\power\\windows",
 			"sourceIndexes" : 
 			[
-				404
+				429
 			]
 		},
 		{
 			"name" : "src\\locale\\windows",
 			"sourceIndexes" : 
 			[
-				405
+				430
 			]
 		},
 		{
 			"name" : "src\\filesystem\\windows",
 			"sourceIndexes" : 
 			[
-				406,
-				407
+				431,
+				432
 			]
 		},
 		{
 			"name" : "src\\storage\\generic",
 			"sourceIndexes" : 
 			[
-				408
+				433
 			]
 		},
 		{
 			"name" : "src\\storage\\steam",
 			"sourceIndexes" : 
 			[
-				409,
-				410
+				434,
+				435
 			]
 		},
 		{
 			"name" : "src\\time\\windows",
 			"sourceIndexes" : 
 			[
-				411
+				436
 			]
 		},
 		{
 			"name" : "src\\timer\\windows",
 			"sourceIndexes" : 
 			[
-				412
+				437
 			]
 		},
 		{
 			"name" : "src\\loadso\\windows",
 			"sourceIndexes" : 
 			[
-				413
+				438
 			]
 		},
 		{
 			"name" : "src\\tray\\windows",
 			"sourceIndexes" : 
 			[
-				414
+				439
 			]
 		},
 		{
 			"name" : "src\\notification\\windows",
 			"sourceIndexes" : 
 			[
-				415
+				440
 			]
 		},
 		{
 			"name" : "src\\joystick\\hidapi",
 			"sourceIndexes" : 
 			[
-				416,
-				417,
-				418,
-				419,
-				420,
-				421,
-				422,
-				423,
-				424,
-				425,
-				426,
-				427,
-				428,
-				429,
-				430,
-				431,
-				432,
-				433,
-				434,
-				435,
-				436,
-				437,
-				438,
-				439,
-				440,
 				441,
 				442,
 				443,
-				444
-			]
-		},
-		{
-			"name" : "src\\haptic\\hidapi",
-			"sourceIndexes" : 
-			[
+				444,
 				445,
-				446
-			]
-		},
-		{
-			"name" : "src\\joystick\\windows",
-			"sourceIndexes" : 
-			[
+				446,
 				447,
 				448,
 				449,
@@ -2760,70 +2637,35 @@
 				452,
 				453,
 				454,
-				455
-			]
-		},
-		{
-			"name" : "src\\joystick\\gdk",
-			"sourceIndexes" : 
-			[
-				456
-			]
-		},
-		{
-			"name" : "src\\haptic\\windows",
-			"sourceIndexes" : 
-			[
+				455,
+				456,
 				457,
 				458,
 				459,
-				460
-			]
-		},
-		{
-			"name" : "src\\camera\\mediafoundation",
-			"sourceIndexes" : 
-			[
-				461
-			]
-		},
-		{
-			"name" : "src\\dialog",
-			"sourceIndexes" : 
-			[
+				460,
+				461,
+				462,
 				463,
-				464
-			]
-		},
-		{
-			"name" : "src\\dialog\\windows",
-			"sourceIndexes" : 
-			[
-				465
-			]
-		},
-		{
-			"name" : "src\\process",
-			"sourceIndexes" : 
-			[
-				466
-			]
-		},
-		{
-			"name" : "src\\process\\windows",
-			"sourceIndexes" : 
-			[
-				467
-			]
-		},
-		{
-			"name" : "src\\video\\offscreen",
-			"sourceIndexes" : 
-			[
+				464,
+				465,
+				466,
+				467,
 				468,
-				469,
+				469
+			]
+		},
+		{
+			"name" : "src\\haptic\\hidapi",
+			"sourceIndexes" : 
+			[
 				470,
-				471,
+				471
+			]
+		},
+		{
+			"name" : "src\\joystick\\windows",
+			"sourceIndexes" : 
+			[
 				472,
 				473,
 				474,
@@ -2831,49 +2673,67 @@
 				476,
 				477,
 				478,
-				479
-			]
-		},
-		{
-			"name" : "src\\tray",
-			"sourceIndexes" : 
-			[
+				479,
 				480
 			]
 		},
 		{
-			"name" : "src\\gpu\\d3d12",
+			"name" : "src\\joystick\\gdk",
 			"sourceIndexes" : 
 			[
-				481,
-				482
+				481
 			]
 		},
 		{
-			"name" : "src\\gpu\\vulkan",
+			"name" : "src\\haptic\\windows",
 			"sourceIndexes" : 
 			[
+				482,
 				483,
-				484
-			]
-		},
-		{
-			"name" : "src\\main\\generic",
-			"sourceIndexes" : 
-			[
+				484,
 				485
 			]
 		},
 		{
-			"name" : "include\\SDL3",
+			"name" : "src\\camera\\mediafoundation",
 			"sourceIndexes" : 
 			[
-				486,
+				486
+			]
+		},
+		{
+			"name" : "src\\dialog",
+			"sourceIndexes" : 
+			[
 				487,
-				488,
-				489,
-				490,
-				491,
+				488
+			]
+		},
+		{
+			"name" : "src\\dialog\\windows",
+			"sourceIndexes" : 
+			[
+				489
+			]
+		},
+		{
+			"name" : "src\\process",
+			"sourceIndexes" : 
+			[
+				490
+			]
+		},
+		{
+			"name" : "src\\process\\windows",
+			"sourceIndexes" : 
+			[
+				491
+			]
+		},
+		{
+			"name" : "src\\video\\offscreen",
+			"sourceIndexes" : 
+			[
 				492,
 				493,
 				494,
@@ -2885,13 +2745,43 @@
 				500,
 				501,
 				502,
-				503,
-				504,
+				503
+			]
+		},
+		{
+			"name" : "src\\tray",
+			"sourceIndexes" : 
+			[
+				504
+			]
+		},
+		{
+			"name" : "src\\gpu\\d3d12",
+			"sourceIndexes" : 
+			[
 				505,
-				506,
+				506
+			]
+		},
+		{
+			"name" : "src\\gpu\\vulkan",
+			"sourceIndexes" : 
+			[
 				507,
-				508,
-				509,
+				508
+			]
+		},
+		{
+			"name" : "src\\main\\generic",
+			"sourceIndexes" : 
+			[
+				509
+			]
+		},
+		{
+			"name" : "include\\SDL3",
+			"sourceIndexes" : 
+			[
 				510,
 				511,
 				512,
@@ -2943,22 +2833,46 @@
 				558,
 				559,
 				560,
-				561
+				561,
+				562,
+				563,
+				564,
+				565,
+				566,
+				567,
+				568,
+				569,
+				570,
+				571,
+				572,
+				573,
+				574,
+				575,
+				576,
+				577,
+				578,
+				579,
+				580,
+				581,
+				582,
+				583,
+				584,
+				585
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				562
+				586
 			]
 		},
 		{
 			"name" : "Precompile Header File",
 			"sourceIndexes" : 
 			[
-				563,
-				564
+				587,
+				588
 			]
 		}
 	],
@@ -2967,13 +2881,13 @@
 		{
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
-			"path" : "out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.cxx",
+			"path" : "out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.cxx",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"compileGroupIndex" : 1,
-			"path" : "out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.c",
+			"path" : "out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -4737,1311 +4651,1455 @@
 			"sourceGroupIndex" : 44
 		},
 		{
-			"backtrace" : 31,
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/e_atan2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/e_exp.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/e_fmod.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/e_log.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/e_log10.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/e_pow.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/e_rem_pio2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/e_sqrt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/k_cos.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/k_rem_pio2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/k_sin.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/k_tan.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_atan.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_copysign.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_cos.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_fabs.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_floor.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_isinf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_isinff.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_isnan.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_isnanf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_modf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_scalbn.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_sin.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"compileGroupIndex" : 2,
+			"path" : "external/SDL/src/libm/s_tan.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 32,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/audio/dummy/SDL_dummyaudio.c",
 			"sourceGroupIndex" : 45
 		},
 		{
-			"backtrace" : 31,
+			"backtrace" : 32,
 			"path" : "external/SDL/src/audio/dummy/SDL_dummyaudio.h",
 			"sourceGroupIndex" : 45
 		},
 		{
-			"backtrace" : 33,
+			"backtrace" : 34,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/audio/disk/SDL_diskaudio.c",
 			"sourceGroupIndex" : 46
 		},
 		{
-			"backtrace" : 33,
+			"backtrace" : 34,
 			"path" : "external/SDL/src/audio/disk/SDL_diskaudio.h",
 			"sourceGroupIndex" : 46
 		},
 		{
-			"backtrace" : 35,
+			"backtrace" : 36,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/camera/dummy/SDL_camera_dummy.c",
 			"sourceGroupIndex" : 47
 		},
 		{
-			"backtrace" : 37,
+			"backtrace" : 38,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/virtual/SDL_virtualjoystick.c",
 			"sourceGroupIndex" : 48
 		},
 		{
-			"backtrace" : 37,
+			"backtrace" : 38,
 			"path" : "external/SDL/src/joystick/virtual/SDL_virtualjoystick_c.h",
 			"sourceGroupIndex" : 48
 		},
 		{
-			"backtrace" : 39,
+			"backtrace" : 40,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/dummy/SDL_nullevents.c",
 			"sourceGroupIndex" : 49
 		},
 		{
-			"backtrace" : 39,
+			"backtrace" : 40,
 			"path" : "external/SDL/src/video/dummy/SDL_nullevents_c.h",
 			"sourceGroupIndex" : 49
 		},
 		{
-			"backtrace" : 39,
+			"backtrace" : 40,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/dummy/SDL_nullframebuffer.c",
 			"sourceGroupIndex" : 49
 		},
 		{
-			"backtrace" : 39,
+			"backtrace" : 40,
 			"path" : "external/SDL/src/video/dummy/SDL_nullframebuffer_c.h",
 			"sourceGroupIndex" : 49
 		},
 		{
-			"backtrace" : 39,
+			"backtrace" : 40,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/dummy/SDL_nullvideo.c",
 			"sourceGroupIndex" : 49
 		},
 		{
-			"backtrace" : 39,
+			"backtrace" : 40,
 			"path" : "external/SDL/src/video/dummy/SDL_nullvideo.h",
 			"sourceGroupIndex" : 49
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"path" : "external/SDL/src/core/windows/SDL_directx.h",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"compileGroupIndex" : 5,
 			"path" : "external/SDL/src/core/windows/SDL_gameinput.cpp",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"path" : "external/SDL/src/core/windows/SDL_gameinput.h",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/core/windows/SDL_hid.c",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"path" : "external/SDL/src/core/windows/SDL_hid.h",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/core/windows/SDL_immdevice.c",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"path" : "external/SDL/src/core/windows/SDL_immdevice.h",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/core/windows/SDL_windows.c",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"path" : "external/SDL/src/core/windows/SDL_windows.h",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/core/windows/SDL_xinput.c",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"path" : "external/SDL/src/core/windows/SDL_xinput.h",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/core/windows/pch.c",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 41,
+			"backtrace" : 42,
 			"compileGroupIndex" : 5,
 			"path" : "external/SDL/src/core/windows/pch_cpp.cpp",
 			"sourceGroupIndex" : 50
 		},
 		{
-			"backtrace" : 43,
+			"backtrace" : 44,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/main/windows/SDL_sysmain_runapp.c",
 			"sourceGroupIndex" : 51
 		},
 		{
-			"backtrace" : 45,
+			"backtrace" : 46,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/io/windows/SDL_asyncio_windows_ioring.c",
 			"sourceGroupIndex" : 52
 		},
 		{
-			"backtrace" : 47,
+			"backtrace" : 48,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/misc/windows/SDL_sysurl.c",
 			"sourceGroupIndex" : 53
 		},
 		{
-			"backtrace" : 49,
+			"backtrace" : 50,
 			"compileGroupIndex" : 5,
 			"path" : "external/SDL/src/core/windows/gameinput/gameinput.cpp",
 			"sourceGroupIndex" : 54
 		},
 		{
-			"backtrace" : 51,
+			"backtrace" : 52,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/audio/directsound/SDL_directsound.c",
 			"sourceGroupIndex" : 55
 		},
 		{
-			"backtrace" : 51,
+			"backtrace" : 52,
 			"path" : "external/SDL/src/audio/directsound/SDL_directsound.h",
 			"sourceGroupIndex" : 55
 		},
 		{
-			"backtrace" : 53,
+			"backtrace" : 54,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/audio/wasapi/SDL_wasapi.c",
 			"sourceGroupIndex" : 56
 		},
 		{
-			"backtrace" : 53,
+			"backtrace" : 54,
 			"path" : "external/SDL/src/audio/wasapi/SDL_wasapi.h",
 			"sourceGroupIndex" : 56
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_msctf.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsclipboard.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsclipboard.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsevents.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsevents.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsframebuffer.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsframebuffer.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 5,
 			"path" : "external/SDL/src/video/windows/SDL_windowsgameinput.cpp",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsgameinput.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowskeyboard.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowskeyboard.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsmessagebox.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsmessagebox.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsmodes.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsmodes.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsmouse.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsmouse.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsopengl.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsopengl.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsopengles.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsopengles.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsrawinput.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsrawinput.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsshape.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsshape.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsvideo.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsvideo.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowsvulkan.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowsvulkan.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/windows/SDL_windowswindow.c",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/SDL_windowswindow.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 55,
+			"backtrace" : 56,
 			"path" : "external/SDL/src/video/windows/wmmsg.h",
 			"sourceGroupIndex" : 57
 		},
 		{
-			"backtrace" : 57,
+			"backtrace" : 58,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/thread/generic/SDL_syscond.c",
 			"sourceGroupIndex" : 58
 		},
 		{
-			"backtrace" : 57,
+			"backtrace" : 58,
 			"path" : "external/SDL/src/thread/generic/SDL_syscond_c.h",
 			"sourceGroupIndex" : 58
 		},
 		{
-			"backtrace" : 57,
+			"backtrace" : 58,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/thread/generic/SDL_sysrwlock.c",
 			"sourceGroupIndex" : 58
 		},
 		{
-			"backtrace" : 57,
+			"backtrace" : 58,
 			"path" : "external/SDL/src/thread/generic/SDL_sysrwlock_c.h",
 			"sourceGroupIndex" : 58
 		},
 		{
-			"backtrace" : 57,
+			"backtrace" : 58,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/thread/windows/SDL_syscond_cv.c",
 			"sourceGroupIndex" : 59
 		},
 		{
-			"backtrace" : 57,
+			"backtrace" : 58,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/thread/windows/SDL_sysmutex.c",
 			"sourceGroupIndex" : 59
 		},
 		{
-			"backtrace" : 57,
+			"backtrace" : 58,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/thread/windows/SDL_sysrwlock_srw.c",
 			"sourceGroupIndex" : 59
 		},
 		{
-			"backtrace" : 57,
+			"backtrace" : 58,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/thread/windows/SDL_syssem.c",
 			"sourceGroupIndex" : 59
 		},
 		{
-			"backtrace" : 57,
+			"backtrace" : 58,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/thread/windows/SDL_systhread.c",
 			"sourceGroupIndex" : 59
 		},
 		{
-			"backtrace" : 57,
+			"backtrace" : 58,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/thread/windows/SDL_systls.c",
 			"sourceGroupIndex" : 59
 		},
 		{
-			"backtrace" : 59,
+			"backtrace" : 60,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/sensor/windows/SDL_windowssensor.c",
 			"sourceGroupIndex" : 60
 		},
 		{
-			"backtrace" : 59,
+			"backtrace" : 60,
 			"path" : "external/SDL/src/sensor/windows/SDL_windowssensor.h",
 			"sourceGroupIndex" : 60
 		},
 		{
-			"backtrace" : 61,
+			"backtrace" : 62,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/power/windows/SDL_syspower.c",
 			"sourceGroupIndex" : 61
 		},
 		{
-			"backtrace" : 63,
+			"backtrace" : 64,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/locale/windows/SDL_syslocale.c",
 			"sourceGroupIndex" : 62
 		},
 		{
-			"backtrace" : 65,
+			"backtrace" : 66,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/filesystem/windows/SDL_sysfilesystem.c",
 			"sourceGroupIndex" : 63
 		},
 		{
-			"backtrace" : 65,
+			"backtrace" : 66,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/filesystem/windows/SDL_sysfsops.c",
 			"sourceGroupIndex" : 63
 		},
 		{
-			"backtrace" : 67,
+			"backtrace" : 68,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/storage/generic/SDL_genericstorage.c",
 			"sourceGroupIndex" : 64
 		},
 		{
-			"backtrace" : 69,
+			"backtrace" : 70,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/storage/steam/SDL_steamstorage.c",
 			"sourceGroupIndex" : 65
 		},
 		{
-			"backtrace" : 69,
+			"backtrace" : 70,
 			"path" : "external/SDL/src/storage/steam/SDL_steamstorage_proc.h",
 			"sourceGroupIndex" : 65
 		},
 		{
-			"backtrace" : 71,
+			"backtrace" : 72,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/time/windows/SDL_systime.c",
 			"sourceGroupIndex" : 66
 		},
 		{
-			"backtrace" : 73,
+			"backtrace" : 74,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/timer/windows/SDL_systimer.c",
 			"sourceGroupIndex" : 67
 		},
 		{
-			"backtrace" : 75,
+			"backtrace" : 76,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/loadso/windows/SDL_sysloadso.c",
 			"sourceGroupIndex" : 68
 		},
 		{
-			"backtrace" : 77,
+			"backtrace" : 78,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/tray/windows/SDL_tray.c",
 			"sourceGroupIndex" : 69
 		},
 		{
-			"backtrace" : 79,
+			"backtrace" : 80,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/notification/windows/SDL_windowsnotification.c",
 			"sourceGroupIndex" : 70
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_8bitdo.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_combined.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_flydigi.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_gamecube.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_gamesir.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_gip.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_lg4ff.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_luna.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_ps3.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_ps4.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_ps5.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_rumble.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_shield.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_sinput.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_stadia.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_steam.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_steam_hori.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_steam_triton.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_steamdeck.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_switch.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_switch2.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_wii.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_xbox360.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_xbox360bb.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_xbox360w.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_xboxone.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapi_zuiki.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_hidapijoystick.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 82,
+			"backtrace" : 83,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/hidapi/SDL_report_descriptor.c",
 			"sourceGroupIndex" : 71
 		},
 		{
-			"backtrace" : 84,
+			"backtrace" : 85,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/haptic/hidapi/SDL_hidapihaptic.c",
 			"sourceGroupIndex" : 72
 		},
 		{
-			"backtrace" : 84,
+			"backtrace" : 85,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/haptic/hidapi/SDL_hidapihaptic_lg4ff.c",
 			"sourceGroupIndex" : 72
 		},
 		{
-			"backtrace" : 86,
+			"backtrace" : 87,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/windows/SDL_dinputjoystick.c",
 			"sourceGroupIndex" : 73
 		},
 		{
-			"backtrace" : 86,
+			"backtrace" : 87,
 			"path" : "external/SDL/src/joystick/windows/SDL_dinputjoystick_c.h",
 			"sourceGroupIndex" : 73
 		},
 		{
-			"backtrace" : 86,
+			"backtrace" : 87,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/windows/SDL_rawinputjoystick.c",
 			"sourceGroupIndex" : 73
 		},
 		{
-			"backtrace" : 86,
+			"backtrace" : 87,
 			"path" : "external/SDL/src/joystick/windows/SDL_rawinputjoystick_c.h",
 			"sourceGroupIndex" : 73
 		},
 		{
-			"backtrace" : 86,
+			"backtrace" : 87,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/windows/SDL_windows_gaming_input.c",
 			"sourceGroupIndex" : 73
 		},
 		{
-			"backtrace" : 86,
+			"backtrace" : 87,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/windows/SDL_windowsjoystick.c",
 			"sourceGroupIndex" : 73
 		},
 		{
-			"backtrace" : 86,
+			"backtrace" : 87,
 			"path" : "external/SDL/src/joystick/windows/SDL_windowsjoystick_c.h",
 			"sourceGroupIndex" : 73
 		},
 		{
-			"backtrace" : 86,
+			"backtrace" : 87,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/joystick/windows/SDL_xinputjoystick.c",
 			"sourceGroupIndex" : 73
 		},
 		{
-			"backtrace" : 86,
+			"backtrace" : 87,
 			"path" : "external/SDL/src/joystick/windows/SDL_xinputjoystick_c.h",
 			"sourceGroupIndex" : 73
 		},
 		{
-			"backtrace" : 88,
+			"backtrace" : 89,
 			"compileGroupIndex" : 5,
 			"path" : "external/SDL/src/joystick/gdk/SDL_gameinputjoystick.cpp",
 			"sourceGroupIndex" : 74
 		},
 		{
-			"backtrace" : 90,
+			"backtrace" : 91,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/haptic/windows/SDL_dinputhaptic.c",
 			"sourceGroupIndex" : 75
 		},
 		{
-			"backtrace" : 90,
+			"backtrace" : 91,
 			"path" : "external/SDL/src/haptic/windows/SDL_dinputhaptic_c.h",
 			"sourceGroupIndex" : 75
 		},
 		{
-			"backtrace" : 90,
+			"backtrace" : 91,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/haptic/windows/SDL_windowshaptic.c",
 			"sourceGroupIndex" : 75
 		},
 		{
-			"backtrace" : 90,
+			"backtrace" : 91,
 			"path" : "external/SDL/src/haptic/windows/SDL_windowshaptic_c.h",
 			"sourceGroupIndex" : 75
 		},
 		{
-			"backtrace" : 92,
+			"backtrace" : 93,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/camera/mediafoundation/SDL_camera_mediafoundation.c",
 			"sourceGroupIndex" : 76
 		},
 		{
-			"backtrace" : 94,
-			"compileGroupIndex" : 6,
-			"path" : "external/SDL/src/core/windows/version.rc",
-			"sourceGroupIndex" : 50
-		},
-		{
-			"backtrace" : 96,
+			"backtrace" : 95,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/dialog/SDL_dialog.c",
 			"sourceGroupIndex" : 77
 		},
 		{
-			"backtrace" : 98,
+			"backtrace" : 97,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/dialog/SDL_dialog_utils.c",
 			"sourceGroupIndex" : 77
 		},
 		{
-			"backtrace" : 100,
+			"backtrace" : 99,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/dialog/windows/SDL_windowsdialog.c",
 			"sourceGroupIndex" : 78
 		},
 		{
-			"backtrace" : 102,
+			"backtrace" : 101,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/process/SDL_process.c",
 			"sourceGroupIndex" : 79
 		},
 		{
-			"backtrace" : 104,
+			"backtrace" : 103,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/process/windows/SDL_windowsprocess.c",
 			"sourceGroupIndex" : 80
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenevents.c",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenevents_c.h",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenframebuffer.c",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenframebuffer_c.h",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenopengles.c",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenopengles.h",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenvideo.c",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenvideo.h",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenvulkan.c",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenvulkan.h",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenwindow.c",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 106,
+			"backtrace" : 105,
 			"path" : "external/SDL/src/video/offscreen/SDL_offscreenwindow.h",
 			"sourceGroupIndex" : 81
 		},
 		{
-			"backtrace" : 108,
+			"backtrace" : 107,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/tray/SDL_tray_utils.c",
 			"sourceGroupIndex" : 82
 		},
 		{
-			"backtrace" : 110,
+			"backtrace" : 109,
 			"path" : "external/SDL/src/gpu/d3d12/D3D12_Blit.h",
 			"sourceGroupIndex" : 83
 		},
 		{
-			"backtrace" : 110,
+			"backtrace" : 109,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/gpu/d3d12/SDL_gpu_d3d12.c",
 			"sourceGroupIndex" : 83
 		},
 		{
-			"backtrace" : 112,
+			"backtrace" : 111,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/gpu/vulkan/SDL_gpu_vulkan.c",
 			"sourceGroupIndex" : 84
 		},
 		{
-			"backtrace" : 112,
+			"backtrace" : 111,
 			"path" : "external/SDL/src/gpu/vulkan/SDL_gpu_vulkan_vkfuncs.h",
 			"sourceGroupIndex" : 84
 		},
 		{
-			"backtrace" : 114,
+			"backtrace" : 113,
 			"compileGroupIndex" : 2,
 			"path" : "external/SDL/src/main/generic/SDL_sysmain_callbacks.c",
 			"sourceGroupIndex" : 85
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_assert.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_asyncio.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_atomic.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_audio.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_begin_code.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_bits.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_blendmode.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_camera.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_clipboard.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_close_code.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_copying.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_cpuinfo.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_dialog.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_dlopennote.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_egl.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_endian.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_error.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_events.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_filesystem.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_gamepad.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_gpu.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_guid.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_haptic.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_hidapi.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_hints.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_init.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_intrin.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_iostream.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_joystick.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_keyboard.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_keycode.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_loadso.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_locale.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_log.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_main.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_main_impl.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_messagebox.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_metal.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_misc.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_mouse.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_mutex.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_notification.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_oldnames.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_opengl.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_opengl_glext.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_opengles.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_opengles2.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_opengles2_gl2.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_opengles2_gl2ext.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_opengles2_gl2platform.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_opengles2_khrplatform.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_openxr.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_pen.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_pixels.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_platform.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_platform_defines.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_power.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_process.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_properties.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_rect.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_render.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_scancode.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_sensor.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_stdinc.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_storage.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_surface.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_system.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_thread.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_time.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_timer.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_touch.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_tray.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_version.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_video.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "external/SDL/include/SDL3/SDL_vulkan.h",
 			"sourceGroupIndex" : 86
 		},
 		{
-			"backtrace" : 116,
+			"backtrace" : 115,
 			"path" : "out/build/x64-debug/external/SDL/include-revision/SDL3/SDL_revision.h",
 			"sourceGroupIndex" : 87
 		},
 		{
 			"backtrace" : 0,
-			"path" : "out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.h",
+			"path" : "out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.h",
 			"sourceGroupIndex" : 88
 		},
 		{
 			"backtrace" : 0,
-			"path" : "out/build/x64-debug/external/SDL/CMakeFiles/SDL3-shared.dir/cmake_pch.hxx",
+			"path" : "out/build/x64-debug/external/SDL/CMakeFiles/SDL3-static.dir/cmake_pch.hxx",
 			"sourceGroupIndex" : 88
 		}
 	],
-	"type" : "SHARED_LIBRARY"
+	"type" : "STATIC_LIBRARY"
 }
