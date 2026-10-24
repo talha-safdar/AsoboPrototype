@@ -27,6 +27,20 @@ int main()
 		return -1;
 	}
 
+	bool running = true;
+	SDL_Event event;
+
+	while (running)
+	{
+		while (SDL_PollEvent(&event))
+		{
+			if (event.type == SDL_EVENT_QUIT) // if user closes the window
+			{
+				running = false;
+			}
+		}
+	}
+
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
