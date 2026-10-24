@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Graphics/Shader.h"
+
 #include <iostream>
 #include <glad/gl.h>
 #include <SDL3/SDL.h>
@@ -33,10 +35,12 @@ private:
 	SDL_Window* m_window;
 	SDL_GLContext m_glContext;
 
+	Shader m_shader;
+
 	GLuint m_vao = 0;
 	GLuint m_vbo = 0;
 	GLuint m_ebo = 0;
-	GLuint m_shaderProgram = 0;
+	//GLuint m_shaderProgram = 0;
 
 	bool m_running;
 };

@@ -1,6 +1,6 @@
 #include "Application.h"
 
-Application::Application() : m_window(nullptr), m_glContext(nullptr), m_running(false), m_vao(0), m_vbo(0), m_ebo(0), m_shaderProgram(0)
+Application::Application() : m_window(nullptr), m_glContext(nullptr), m_running(false), m_vao(0), m_vbo(0), m_ebo(0)
 {
     
 }
@@ -59,11 +59,7 @@ bool Application::InitializeGraphics()
 {
 	float vertices[] =
 	{
-		//0.0f,  0.5f, 0.0f, // top vertex
-		//-0.5f, -0.5f, 0.0f, // bottom left vertex
-		//0.5f, -0.5f, 0.0f  // bottom right vertex
-
-			// x      y      z
+		// x      y      z
 		 0.5f,  0.5f,  0.0f,   // 0 top-right
 		 0.5f, -0.5f,  0.0f,   // 1 bottom-right
 		-0.5f, -0.5f,  0.0f,   // 2 bottom-left
@@ -130,37 +126,42 @@ bool Application::InitializeGraphics()
 		}
 	)";
 
-	// compile vertex shader
-	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+	if (!m_shader.Create(vertexShaderSource, fragmentShaderSource))
+	{
+		return false;
+	}
 
-	// attach shader source code to shader object
-	glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
+	//// compile vertex shader
+	//GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
-	// compile vertex shader
-	glCompileShader(vertexShader);
+	//// attach shader source code to shader object
+	//glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
 
-	// compile fragment shader
-	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+	//// compile vertex shader
+	//glCompileShader(vertexShader);
 
-	// attach shader source code to shader object
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
+	//// compile fragment shader
+	//GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-	// compile fragment shader
-	glCompileShader(fragmentShader);
+	//// attach shader source code to shader object
+	//glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
+
+	//// compile fragment shader
+	//glCompileShader(fragmentShader);
 
 	// create shader program
-	m_shaderProgram = glCreateProgram();
+	//m_shaderProgram = glCreateProgram();
 
 	// attach shaders to program
-	glAttachShader(m_shaderProgram, vertexShader);
-	glAttachShader(m_shaderProgram, fragmentShader);
+	//glAttachShader(m_shaderProgram, vertexShader);
+	//glAttachShader(m_shaderProgram, fragmentShader);
 
 	// link shader program
-	glLinkProgram(m_shaderProgram);
+	//glLinkProgram(m_shaderProgram);
 
 	// delete shaders as they are no longer needed after linking
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
+	//glDeleteShader(vertexShader);
+//	glDeleteShader(fragmentShader);
 
 	return true;
 }
@@ -189,15 +190,17 @@ void Application::ProcessEvents()
 }
 
 void Application::Update()
-{}
+{
+
+}
 
 void Application::Render()
 {
-	// rendering
 	glClearColor(0.1f, 0.15f, 0.2f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	glUseProgram(m_shaderProgram);
+	//glUseProgram(m_shaderProgram);
+	m_shader.Bind();
 	glBindVertexArray(m_vao);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
@@ -208,11 +211,11 @@ void Application::Shutdown()
 {
 	m_running = false;
 
-	if (m_shaderProgram)
-	{
-		glDeleteProgram(m_shaderProgram);
-		m_shaderProgram = 0;
-	}
+	//if (m_shaderProgram)
+	//{
+	//	glDeleteProgram(m_shaderProgram);
+	//	m_shaderProgram = 0;
+	//}
 
 	if (m_ebo)
 	{
