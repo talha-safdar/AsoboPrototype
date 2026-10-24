@@ -12,7 +12,7 @@ endif()
 project ("AsoboPrototype")
 
 # Add source to this project's executable.
-add_executable (AsoboPrototype "src/AsoboPrototype.cpp" "src/AsoboPrototype.h")
+add_executable (AsoboPrototype "src/AsoboPrototype.cpp" "src/AsoboPrototype.h" "src/Core/Application.h" "src/Core/Application.cpp")
 
 # GLAD
 add_library(glad STATIC
