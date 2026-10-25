@@ -2,7 +2,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-Application::Application() : m_window(nullptr), m_glContext(nullptr), m_running(false), m_vao(0), m_vbo(0), m_ebo(0)
+Application::Application() : m_window(nullptr), m_glContext(nullptr), m_running(false), m_vao(0), m_vbo(0), m_ebo(0), m_deltaTime(0.0f), m_lastFrameTime(0)
 {
     
 }
@@ -58,7 +58,7 @@ bool Application::Initialize()
 
 	// SDL Window: create window (SDL asks windows to create a native window
 	// SDL_WINDOW_OPENGL menas is going to be used for OpenGL rendering
-	m_window = SDL_CreateWindow("Asobo Prototype", 1280, 720, SDL_WINDOW_OPENGL);
+	m_window = SDL_CreateWindow("Asobo Prototype", 1280, 720, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_MAXIMIZED);
 
 	// OpenGL Context: create OpenGL context for this window
 	m_glContext = SDL_GL_CreateContext(m_window);
@@ -211,8 +211,14 @@ bool Application::InitializeGraphics()
 
 void Application::Run()
 {
+	m_lastFrameTime = SDL_GetTicksNS();
+
 	while (m_running)
 	{
+		Uint64 currentTime = SDL_GetTicksNS();
+		m_deltaTime = static_cast<float>(currentTime - m_lastFrameTime) / 1'000'000'000.0f; // nanoseconds (1s)
+		m_lastFrameTime = currentTime;
+
 		ProcessEvents();
 		Update();
 		Render();
@@ -236,12 +242,43 @@ void Application::ProcessEvents()
 		{
 			m_running = false;
 		}
+
+		if (event.type == SDL_EVENT_MOUSE_MOTION)
+		{
+			/*
+				xrel = how far mouse moved horizontally
+				yrel = how far mouse moved vertically
+			*/
+			m_camera.ProcessMouseMovement(event.motion.xrel, event.motion.yrel);
+		}
 	}
 }
 
 void Application::Update()
 {
+	const bool* keyboardState = SDL_GetKeyboardState(nullptr);
+	const float movementSpeed = 3.0f;
+	const float movementAmount = movementSpeed * m_deltaTime;
 
+	if (keyboardState[SDL_SCANCODE_W])
+	{
+		m_camera.MoveForward(movementAmount);
+	}
+
+	if (keyboardState[SDL_SCANCODE_S])
+	{
+		m_camera.MoveForward(-movementAmount);
+	}
+
+	if (keyboardState[SDL_SCANCODE_D])
+	{
+		m_camera.MoveRight(movementAmount);
+	}
+
+	if (keyboardState[SDL_SCANCODE_A])
+	{
+		m_camera.MoveRight(-movementAmount);
+	}
 }
 
 void Application::Render()

@@ -111,6 +111,9 @@ private:
 	std::unique_ptr<Shader> m_shader;
 	std::unique_ptr<Mesh> m_mesh;
 
+	float m_deltaTime;
+	Uint64 m_lastFrameTime;
+
 	GLuint m_vao = 0;
 	GLuint m_vbo = 0;
 	GLuint m_ebo = 0;
