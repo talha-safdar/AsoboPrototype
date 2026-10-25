@@ -30,6 +30,7 @@ public:
 
 	const glm::vec3& GetPosition() const;
 	State GetState() const;
+	float GetYaw() const;
 
 private:
 	glm::vec3 m_position;
@@ -45,4 +46,5 @@ private:
 
 	float m_attackCooldown; // attackCooldown = attack every 1 second maximum
 	float m_attackTimer; // attackTimer = time remaining before next attack
+	float m_yaw;
 };

@@ -2,6 +2,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <algorithm>
+#include <algorithm>
+#include <cmath>
 
 Application::Application() : m_window(nullptr), m_glContext(nullptr), m_running(false), m_vao(0), m_vbo(0), m_ebo(0), m_deltaTime(0.0f), m_lastFrameTime(0)
 {
@@ -396,8 +398,27 @@ void Application::Render()
 	// moving enemy
 	glm::mat4 enemyModel = glm::mat4(1.0f);
 	enemyModel = glm::translate(enemyModel, m_enemy.GetPosition());
+	enemyModel = glm::rotate(enemyModel, m_enemy.GetYaw(), glm::vec3(0.0f, 1.0f, 0.0f));
+	enemyModel = glm::scale(enemyModel, glm::vec3(0.7f, 1.0f, 1.2f));
+	glm::vec3 enemyColor;
+	switch (m_enemy.GetState())
+	{
+		case Enemy::State::Idle:
+			enemyColor = glm::vec3(0.5f, 0.1f, 0.1f);
+			break;
+
+		case Enemy::State::Chase:
+			enemyColor = glm::vec3(1.0f, 0.5f, 0.0f);
+			break;
+
+		case Enemy::State::Attack:
+			enemyColor = glm::vec3(0.0f, 1.0f, 0.0f);
+			break;
+	}
 	m_shader->SetMat4("uModel", enemyModel);
-	m_shader->SetVec3("uColor", glm::vec3(0.8f, 0.1f, 0.1f));
+	m_shader->SetVec3("uColor", enemyColor);
+
+
 	m_mesh->Draw();
 
 	SDL_GL_SwapWindow(m_window);

@@ -45,3 +45,24 @@ Windows starts executable
 Application owns the game lifetime.
 Shader owns the shader program.
 Mesh owns geometry buffers.
+
+
+
+
+#2
+Player
+├── movement
+├── jumping
+├── collision
+├── rotation
+└── health
+
+Enemy
+├── perception
+├── Idle
+├── Chase
+├── Attack
+└── attack cooldown
+
+Application
+└── coordinates Player ↔ Enemy
