@@ -7,6 +7,7 @@
 #include "../Physics/Collision.h"
 #include "../Gameplay/Player.h"
 #include "../Navigation/NavigationGrid.h"
+#include "../Navigation/Pathfinder.h"
 
 #include <iostream>
 #include <glad/gl.h>
@@ -111,6 +112,7 @@ private:
 	Camera m_camera;
 	Player m_player;
 	NavigationGrid m_navigationGrid{ 20, 20, 1.0f };
+	Pathfinder m_pathfinder;
 
 	// unique_ptr is used to manage the lifetime of Shader and Mesh objects (ownership),
 	// ensuring they are properly deleted when the Application object is destroyed.

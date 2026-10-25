@@ -99,11 +99,18 @@ bool Application::Initialize()
 
 	m_navigationGrid.Build(m_obstacles); // needs rebuilding when the navigation obstacles change.
 
+	std::vector<glm::vec3> testPath = m_pathfinder.FindPath(m_navigationGrid, glm::vec3(0.0f, 0.0f, -10.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+
+	std::cout << "Path waypoints: " << testPath.size() << std::endl;
+
+	for (const glm::vec3& point : testPath)
+	{
+		std::cout << "Waypoint: " << point.x << ", " << point.z << std::endl;
+	}
+
+
 	glm::ivec2 greenCell = m_navigationGrid.WorldToCell(m_obstacles[0].position);
 	glm::ivec2 emptyCell = m_navigationGrid.WorldToCell(glm::vec3(0.0f, 0.0f, 0.0f));
-
-	//std::cout << "Green walkable: " << m_navigationGrid.IsWalkable(greenCell) << std::endl;
-	//std::cout << "Origin walkable: " << m_navigationGrid.IsWalkable(emptyCell) << std::endl;
 
 	m_running = true;
 	return true;

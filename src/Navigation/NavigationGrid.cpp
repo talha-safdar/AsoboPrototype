@@ -47,6 +47,16 @@ bool NavigationGrid::IsInside(const glm::ivec2& cell) const
 	return cell.x >= 0 && cell.x < m_width && cell.y >= 0 && cell.y < m_height;
 }
 
+int NavigationGrid::GetWidth() const
+{
+	return m_width;
+}
+
+int NavigationGrid::GetHeight() const
+{
+	return m_height;
+}
+
 int NavigationGrid::GetIndex(const glm::ivec2& cell) const
 {
 	return cell.y * m_width + cell.x;

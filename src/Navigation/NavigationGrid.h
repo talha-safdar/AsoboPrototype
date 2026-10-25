@@ -31,6 +31,9 @@ public:
 	bool IsWalkable(const glm::ivec2& cell) const;
 	bool IsInside(const glm::ivec2& cell) const;
 
+	int GetWidth() const;
+	int GetHeight() const;
+
 private:
 	int GetIndex(const glm::ivec2& cell) const;
 

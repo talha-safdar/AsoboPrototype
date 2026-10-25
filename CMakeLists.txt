@@ -30,7 +30,9 @@ add_executable (AsoboPrototype
 "src/Gameplay/Player.h"
 "src/Gameplay/Player.cpp" 
 "src/Navigation/NavigationGrid.h" 
-"src/Navigation/NavigationGrid.cpp")
+"src/Navigation/NavigationGrid.cpp" 
+"src/Navigation/Pathfinder.h" 
+"src/Navigation/Pathfinder.cpp")
 
 # GLAD
 add_library(glad STATIC
