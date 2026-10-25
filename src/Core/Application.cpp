@@ -182,6 +182,9 @@ bool Application::InitializeGraphics()
 	};
 
 	glEnable(GL_DEPTH_TEST); // Depth testing stops far-away surfaces from incorrectly drawing over nearer ones.
+	glEnable(GL_CULL_FACE); // enables face removal.
+	glCullFace(GL_BACK); // Don't draw triangle faces pointing away from the camera.
+	glFrontFace(GL_CCW); // Counter-clockwise vertex order represents the front of a triangle.
 
 	// Dynamically create a Shader and give exclusive ownership to Application
 	m_mesh = std::make_unique<Mesh>(); // application owns the mesh

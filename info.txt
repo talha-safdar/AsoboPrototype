@@ -87,3 +87,14 @@ Collision
 
 Navigation
 = "Where am I allowed to travel?"
+
+Grid A*
+= world divided into squares
+= simple, easy to debug
+= paths can look blocky
+
+Navmesh
+= walkable floor represented by polygons
+= agent moves across connected polygons
+= much better for irregular 3D environments
+= what you’d expect in a serious third-person game
