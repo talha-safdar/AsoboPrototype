@@ -97,6 +97,14 @@ bool Application::Initialize()
 		return false;
 	}
 
+	m_navigationGrid.Build(m_obstacles); // needs rebuilding when the navigation obstacles change.
+
+	glm::ivec2 greenCell = m_navigationGrid.WorldToCell(m_obstacles[0].position);
+	glm::ivec2 emptyCell = m_navigationGrid.WorldToCell(glm::vec3(0.0f, 0.0f, 0.0f));
+
+	//std::cout << "Green walkable: " << m_navigationGrid.IsWalkable(greenCell) << std::endl;
+	//std::cout << "Origin walkable: " << m_navigationGrid.IsWalkable(emptyCell) << std::endl;
+
 	m_running = true;
 	return true;
 }

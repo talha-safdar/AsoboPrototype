@@ -25,10 +25,12 @@ add_executable (AsoboPrototype
 "src/Gameplay/Camera.cpp" 
 "src/Gameplay/Enemy.h" 
 "src/Gameplay/Enemy.cpp"
- "src/Physics/Collision.h"
- "src/Physics/Collision.cpp" 
- "src/Gameplay/Player.h"
- "src/Gameplay/Player.cpp")
+"src/Physics/Collision.h"
+"src/Physics/Collision.cpp" 
+"src/Gameplay/Player.h"
+"src/Gameplay/Player.cpp" 
+"src/Navigation/NavigationGrid.h" 
+"src/Navigation/NavigationGrid.cpp")
 
 # GLAD
 add_library(glad STATIC

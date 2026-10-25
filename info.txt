@@ -66,3 +66,24 @@ Enemy
 
 Application
 └── coordinates Player ↔ Enemy
+
+Application
+├── Player
+├── Enemy
+├── Camera
+│
+├── NavigationGrid
+│   └── knows where walking is possible
+│
+├── Collision
+│   └── geometric collision tests
+│
+├── Mesh
+└── Shader
+
+
+Collision
+= "Are these things touching/blocking each other?"
+
+Navigation
+= "Where am I allowed to travel?"
