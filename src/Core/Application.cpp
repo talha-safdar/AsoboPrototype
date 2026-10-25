@@ -340,7 +340,7 @@ void Application::Update()
 	m_player.Update(movement, jumpPressed, m_deltaTime, m_obstacles);
 
 	// update enemy
-	bool enemyAttacked = m_enemy.Update(m_player.GetPosition(), m_deltaTime, m_obstacles);
+	bool enemyAttacked = m_enemy.Update(m_player.GetPosition(), m_deltaTime, m_obstacles, m_navigationGrid, m_pathfinder);
 
 	if (enemyAttacked)
 	{
@@ -425,7 +425,9 @@ void Application::Render()
 		case Enemy::State::Chase:
 			enemyColor = glm::vec3(1.0f, 0.5f, 0.0f);
 			break;
-
+		case Enemy::State::Search:
+			enemyColor = glm::vec3(0.2f, 0.4f, 1.0f);
+			break;
 		case Enemy::State::Attack:
 			enemyColor = glm::vec3(0.0f, 1.0f, 0.0f);
 			break;

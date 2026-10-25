@@ -111,7 +111,7 @@ private:
 	SDL_GLContext m_glContext;
 	Camera m_camera;
 	Player m_player;
-	NavigationGrid m_navigationGrid{ 20, 20, 1.0f };
+	NavigationGrid m_navigationGrid{ 21, 21, 1.0f };
 	Pathfinder m_pathfinder;
 
 	// unique_ptr is used to manage the lifetime of Shader and Mesh objects (ownership),
