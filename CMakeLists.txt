@@ -20,7 +20,9 @@ add_executable (AsoboPrototype
 "src/Graphics/Shader.h"
 "src/Graphics/Shader.cpp" 
 "src/Graphics/Mesh.h" 
-"src/Graphics/Mesh.cpp")
+"src/Graphics/Mesh.cpp" 
+"src/Gameplay/Camera.h" 
+"src/Gameplay/Camera.cpp")
 
 # GLAD
 add_library(glad STATIC

@@ -2,6 +2,7 @@
 
 #include "../Graphics/Shader.h"
 #include "../Graphics/Mesh.h"
+#include "../Gameplay/Camera.h"
 
 #include <iostream>
 #include <glad/gl.h>
@@ -100,6 +101,7 @@ private:
 private:
 	SDL_Window* m_window;
 	SDL_GLContext m_glContext;
+	Camera m_camera;
 
 	// unique_ptr is used to manage the lifetime of Shader and Mesh objects (ownership),
 	// ensuring they are properly deleted when the Application object is destroyed.
