@@ -23,7 +23,7 @@ Mesh::~Mesh()
 
 bool Mesh::Create(const std::vector<float>&vertices, const std::vector<unsigned int>&indices)
 {
-	m_indexCount = static_cast<GLsizei>(indices.size());
+	m_indexCount = static_cast<GLsizei>(indices.size()); // set the sie of indeices (e.g. number of triangles)
 
 	glGenVertexArrays(1, &m_vao);
 	glGenBuffers(1, &m_vbo);

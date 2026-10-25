@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glad/gl.h>
+#include <glm/glm.hpp>
 #include <string>
 
 /*
@@ -27,6 +28,7 @@ public:
 	* makes that shader program active for rendering.
 	*/
 	void Bind() const;
+	void SetMat4(const std::string& name, const glm::mat4& value) const;
 
 private:
 	bool CompileShader(GLuint shader, const std::string& source, const char* shaderName) const;

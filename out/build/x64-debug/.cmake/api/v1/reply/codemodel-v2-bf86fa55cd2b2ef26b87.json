@@ -31,6 +31,13 @@
 					"jsonFile" : "target-SDL3_test-collector-Debug-e8da3b82d2c13fe8b71d.json",
 					"name" : "SDL3_test-collector",
 					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "glm-header-only::@d090a432591bc19a3a56",
+					"jsonFile" : "target-glm-header-only-Debug-70914cb5b662de63c165.json",
+					"name" : "glm-header-only",
+					"projectIndex" : 2
 				}
 			],
 			"directories" : 
@@ -39,7 +46,8 @@
 					"build" : ".",
 					"childIndexes" : 
 					[
-						1
+						1,
+						2
 					],
 					"jsonFile" : "directory-.-Debug-f6f22219c74102c3da70.json",
 					"minimumCMakeVersion" : 
@@ -76,6 +84,40 @@
 						1,
 						2
 					]
+				},
+				{
+					"build" : "external/glm",
+					"childIndexes" : 
+					[
+						3
+					],
+					"jsonFile" : "directory-external.glm-Debug-15cd2e6a0e6b3fc5bdc6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "external/glm"
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						4
+					],
+					"build" : "external/glm/glm",
+					"jsonFile" : "directory-external.glm.glm-Debug-716a8581605a979a8f97.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "external/glm/glm",
+					"targetIndexes" : 
+					[
+						4
+					]
 				}
 			],
 			"name" : "Debug",
@@ -84,7 +126,8 @@
 				{
 					"childIndexes" : 
 					[
-						1
+						1,
+						2
 					],
 					"directoryIndexes" : 
 					[
@@ -116,6 +159,23 @@
 						1,
 						2
 					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						4
+					],
+					"directoryIndexes" : 
+					[
+						2,
+						3
+					],
+					"name" : "glm",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						4
+					]
 				}
 			],
 			"targets" : 
@@ -123,7 +183,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "AsoboPrototype::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-AsoboPrototype-Debug-96800469a941ca4ca02a.json",
+					"jsonFile" : "target-AsoboPrototype-Debug-24ab3fb481b19824413a.json",
 					"name" : "AsoboPrototype",
 					"projectIndex" : 0
 				},
@@ -147,6 +207,13 @@
 					"jsonFile" : "target-glad-Debug-54a5596e6d0f88dfbda3.json",
 					"name" : "glad",
 					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "glm::@d090a432591bc19a3a56",
+					"jsonFile" : "target-glm-Debug-b27b008fe8886357d8f9.json",
+					"name" : "glm",
+					"projectIndex" : 2
 				}
 			]
 		}

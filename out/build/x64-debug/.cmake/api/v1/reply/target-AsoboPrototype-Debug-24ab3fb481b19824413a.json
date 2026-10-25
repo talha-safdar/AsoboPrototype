@@ -88,7 +88,7 @@
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 47,
+				"line" : 49,
 				"parent" : 0
 			},
 			{
@@ -130,6 +130,10 @@
 		{
 			"backtrace" : 2,
 			"id" : "glad::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "glm::@d090a432591bc19a3a56"
 		}
 	],
 	"compileGroups" : 
@@ -154,6 +158,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "C:/GitHub/Personal/AsoboPrototype/external/glad/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "C:/GitHub/Personal/AsoboPrototype/external/glm"
 				}
 			],
 			"language" : "CXX",
@@ -178,11 +186,15 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "SDL3-static::@325f9cd2ad4d12a63863"
+			"id" : "glm::@d090a432591bc19a3a56"
 		},
 		{
 			"backtrace" : 2,
 			"id" : "glad::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "SDL3-static::@325f9cd2ad4d12a63863"
 		}
 	],
 	"id" : "AsoboPrototype::@6890427a1f51a3e7e1df",
@@ -210,6 +222,11 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "glad.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "external\\glm\\glm\\glm.lib",
 				"role" : "libraries"
 			},
 			{
@@ -303,6 +320,10 @@
 		{
 			"backtrace" : 2,
 			"id" : "glad::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "glm::@d090a432591bc19a3a56"
 		}
 	],
 	"name" : "AsoboPrototype",

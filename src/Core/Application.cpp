@@ -1,4 +1,6 @@
 #include "Application.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 Application::Application() : m_window(nullptr), m_glContext(nullptr), m_running(false), m_vao(0), m_vbo(0), m_ebo(0)
 {
@@ -89,10 +91,15 @@ bool Application::InitializeGraphics()
 	std::vector<float> vertices =
 	{
 		// x      y      z
-		 0.5f,  0.5f,  0.0f,   // 0 top-right
-		 0.5f, -0.5f,  0.0f,   // 1 bottom-right
-		-0.5f, -0.5f,  0.0f,   // 2 bottom-left
-		-0.5f,  0.5f,  0.0f    // 3 top-left
+		-0.5f, -0.5f, -0.5f, // 0
+		 0.5f, -0.5f, -0.5f, // 1
+		 0.5f,  0.5f, -0.5f, // 2
+		-0.5f,  0.5f, -0.5f, // 3
+
+		-0.5f, -0.5f,  0.5f, // 4
+		 0.5f, -0.5f,  0.5f, // 5
+		 0.5f,  0.5f,  0.5f, // 6
+		-0.5f,  0.5f,  0.5f  // 7
 	};
 
 	// 2 triangles, for GPU 2 draw 2 triangles which form a rectangle
@@ -110,9 +117,32 @@ bool Application::InitializeGraphics()
 	*/
 	std::vector<unsigned int> indices =
 	{
-		0, 1, 3,
-		1, 2, 3
+		// Back
+		0, 1, 2,
+		2, 3, 0,
+
+		// Front
+		4, 5, 6,
+		6, 7, 4,
+
+		// Left
+		0, 4, 7,
+		7, 3, 0,
+
+		// Right
+		1, 5, 6,
+		6, 2, 1,
+
+		// Bottom
+		0, 1, 5,
+		5, 4, 0,
+
+		// Top
+		3, 2, 6,
+		6, 7, 3
 	};
+
+	glEnable(GL_DEPTH_TEST); // Depth testing stops far-away surfaces from incorrectly drawing over nearer ones.
 
 	// Dynamically create a Shader and give exclusive ownership to Application
 	m_mesh = std::make_unique<Mesh>(); // application owns the mesh
@@ -145,9 +175,17 @@ bool Application::InitializeGraphics()
 
 		layout(location = 0) in vec3 aPosition;
 
+		uniform mat4 uModel;
+		uniform mat4 uView;
+		uniform mat4 uProjection;
+
 		void main()
 		{
-			gl_Position = vec4(aPosition, 1.0);
+			gl_Position =
+				uProjection *
+				uView *
+				uModel *
+				vec4(aPosition, 1.0);
 		}
 	)";
 
@@ -209,9 +247,26 @@ void Application::Update()
 void Application::Render()
 {
 	glClearColor(0.1f, 0.15f, 0.2f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear depth buffer and the colour buffer
 
 	m_shader->Bind(); // Use our shader program.
+
+	// model
+	glm::mat4 model = glm::mat4(1.0f);
+	model = glm::rotate(model, glm::radians(25.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	model = glm::rotate(model, glm::radians(-35.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+	// view
+	glm::mat4 view = glm::mat4(1.0f);
+	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f)); // positioning the world 3 units away from the camera
+
+	// projection
+	glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1280.0f / 720.0f, 0.1f, 100.0f); // FOV, Aspect, Near plane, Far plane
+
+	m_shader->SetMat4("uModel", model);
+	m_shader->SetMat4("uView", view);
+	m_shader->SetMat4("uProjection", projection);
+
 	m_mesh->Draw(); // Use the index buffer and draw triangles.
 
 	SDL_GL_SwapWindow(m_window);
@@ -232,8 +287,6 @@ void Application::Shutdown()
 	↓
 	SDL dies
 	*/
-
-
 
 	m_running = false;
 

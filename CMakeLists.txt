@@ -39,9 +39,11 @@ target_link_libraries(AsoboPrototype
     PRIVATE
         SDL3::SDL3-static
         glad
+        glm::glm
 )
 
 add_subdirectory(external/SDL EXCLUDE_FROM_ALL)
+add_subdirectory(external/glm EXCLUDE_FROM_ALL)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET AsoboPrototype PROPERTY CXX_STANDARD 20)

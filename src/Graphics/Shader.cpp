@@ -1,4 +1,5 @@
 #include "Shader.h"
+#include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 
 Shader::Shader() : m_program(0)
@@ -95,4 +96,12 @@ void Shader::Bind() const
     // For the things I'm about to draw, use this vertex/fragment shader program.
     // that program stays active until you bind another one.
     glUseProgram(m_program);
+}
+
+void Shader::SetMat4(const std::string& name, const glm::mat4& value) const
+{
+    // A uniform is basically data we send to the shader that stays the same for the whole draw call.
+    GLint location = glGetUniformLocation(m_program, name.c_str());
+
+    glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
 }
