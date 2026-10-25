@@ -78,6 +78,18 @@ bool Application::Initialize()
 		return false;
 	}
 
+	if (!SDL_SetWindowRelativeMouseMode(m_window, true))
+	{
+		std::cerr << "Failed to enable relative mouse mode: " << SDL_GetError() << std::endl;
+		return false;
+	}
+
+	if (!SDL_SetWindowMouseGrab(m_window, true))
+	{
+		std::cerr << "Failed to grab mouse: " << SDL_GetError() << std::endl;
+		return false;
+	}
+
 	if (!InitializeGraphics())
 	{
 		return false;
@@ -319,7 +331,13 @@ void Application::Update()
 
 		m_playerYaw += angleDifference * rotationAmount;
 
-		glm::vec3 playerHalfSize(0.3f, 0.5f, 0.65f);
+		float cosYaw = std::abs(std::cos(m_playerYaw));
+		float sinYaw = std::abs(std::sin(m_playerYaw));
+
+		float halfX = (0.3f * cosYaw) + (0.65f * sinYaw);
+		float halfZ = (0.3f * sinYaw) + (0.65f * cosYaw);
+
+		glm::vec3 playerHalfSize(halfX, 0.5f, halfZ);
 		glm::vec3 obstacleHalfSize(0.5f, 0.5f, 0.5f);
 
 		m_playerPosition.x += movement.x * movementAmount;
