@@ -1,6 +1,7 @@
 #include "Application.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <algorithm>
 
 Application::Application() : m_window(nullptr), m_glContext(nullptr), m_running(false), m_vao(0), m_vbo(0), m_ebo(0), m_deltaTime(0.0f), m_lastFrameTime(0)
 {
@@ -288,9 +289,15 @@ void Application::Update()
 
 	if (glm::length(movement) > 0.0f)
 	{
-		movement = glm::normalize(movement); // makes its length 1. This is important because otherwise diagonal movement would be faster than straight movement.
+		movement = glm::normalize(movement);
 		m_playerPosition += movement * movementAmount;
-		m_playerDirection = movement; // remembers the direction we just travelled.
+		m_playerDirection = movement;
+
+		float targetYaw = atan2(m_playerDirection.x, m_playerDirection.z);
+		float angleDifference = std::remainder(targetYaw - m_playerYaw, glm::two_pi<float>()); // find shortest rotatiion path
+		float rotationAmount = std::clamp(10.0f * m_deltaTime, 0.0f, 1.0f);
+
+		m_playerYaw += angleDifference * rotationAmount; // gradually turn
 	}
 
 	m_camera.Update(m_playerPosition);
@@ -312,8 +319,8 @@ void Application::Render()
 	// player
 	glm::mat4 playerModel = glm::mat4(1.0f);
 	playerModel = glm::translate(playerModel, m_playerPosition);
-	float playerAngle = atan2(m_playerDirection.x, m_playerDirection.z); // takes the movement direction and converts it into a rotation angle.
-	playerModel = glm::rotate(playerModel, playerAngle, glm::vec3(0.0f, 1.0f, 0.0f)); // rotates the player around the Y axis.
+	playerModel = glm::rotate(playerModel, m_playerYaw, glm::vec3(0.0f, 1.0f, 0.0f));
+	playerModel = glm::scale(playerModel, glm::vec3(0.6f, 1.0f, 1.3f));
 	m_shader->SetMat4("uModel", playerModel);
 	m_shader->SetVec3("uColor", glm::vec3(1.0f, 0.5f, 0.2f));
 	m_mesh->Draw();

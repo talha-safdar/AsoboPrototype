@@ -8,6 +8,7 @@
 #include <glad/gl.h>
 #include <memory>
 #include <SDL3/SDL.h>
+#include <glm/gtc/constants.hpp>
 
 /*
 * It owns:
@@ -113,6 +114,7 @@ private:
 
 	glm::vec3 m_playerPosition{ 0.0f, 0.0f, 0.0f }; // Where does the player exist in the world?
 	glm::vec3 m_playerDirection{ 0.0f, 0.0f, -1.0f }; // which direction the player is facing.
+	float m_playerYaw = glm::pi<float>(); // left-right rotation
 
 	float m_deltaTime;
 	Uint64 m_lastFrameTime;
