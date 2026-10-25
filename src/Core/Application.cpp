@@ -264,25 +264,33 @@ void Application::Update()
 
 	glm::vec3 forward = m_camera.GetForward();
 	glm::vec3 right = m_camera.GetRight();
+	glm::vec3 movement(0.0f);
 
 	if (keyboardState[SDL_SCANCODE_W])
 	{
-		m_playerPosition += forward * movementAmount;
+		movement += forward;
 	}
 
 	if (keyboardState[SDL_SCANCODE_S])
 	{
-		m_playerPosition -= forward * movementAmount;
+		movement -= forward;
 	}
 
 	if (keyboardState[SDL_SCANCODE_D])
 	{
-		m_playerPosition += right * movementAmount;
+		movement += right;
 	}
 
 	if (keyboardState[SDL_SCANCODE_A])
 	{
-		m_playerPosition -= right * movementAmount;
+		movement -= right;
+	}
+
+	if (glm::length(movement) > 0.0f)
+	{
+		movement = glm::normalize(movement); // makes its length 1. This is important because otherwise diagonal movement would be faster than straight movement.
+		m_playerPosition += movement * movementAmount;
+		m_playerDirection = movement; // remembers the direction we just travelled.
 	}
 
 	m_camera.Update(m_playerPosition);
@@ -304,6 +312,8 @@ void Application::Render()
 	// player
 	glm::mat4 playerModel = glm::mat4(1.0f);
 	playerModel = glm::translate(playerModel, m_playerPosition);
+	float playerAngle = atan2(m_playerDirection.x, m_playerDirection.z); // takes the movement direction and converts it into a rotation angle.
+	playerModel = glm::rotate(playerModel, playerAngle, glm::vec3(0.0f, 1.0f, 0.0f)); // rotates the player around the Y axis.
 	m_shader->SetMat4("uModel", playerModel);
 	m_shader->SetVec3("uColor", glm::vec3(1.0f, 0.5f, 0.2f));
 	m_mesh->Draw();
