@@ -103,16 +103,41 @@ bool Application::InitializeGraphics()
 {
 	std::vector<float> vertices =
 	{
-		// x      y      z
-		-0.5f, -0.5f, -0.5f, // 0
-		 0.5f, -0.5f, -0.5f, // 1
-		 0.5f,  0.5f, -0.5f, // 2
-		-0.5f,  0.5f, -0.5f, // 3
+		// Back
+		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		 0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		 0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		-0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
 
-		-0.5f, -0.5f,  0.5f, // 4
-		 0.5f, -0.5f,  0.5f, // 5
-		 0.5f,  0.5f,  0.5f, // 6
-		-0.5f,  0.5f,  0.5f  // 7
+		// Front
+		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+		 0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+		 0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+		-0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+
+		// Left
+		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+
+		// Right
+		 0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+		 0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+		 0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+		 0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+
+		 // Bottom
+		 -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+		  0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+		  0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+		 -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+
+		 // Top
+		 -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+		  0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+		  0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+		 -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f
 	};
 
 	// 2 triangles, for GPU 2 draw 2 triangles which form a rectangle
@@ -130,29 +155,13 @@ bool Application::InitializeGraphics()
 	*/
 	std::vector<unsigned int> indices =
 	{
-		// Back
-		0, 1, 2,
-		2, 3, 0,
-
-		// Front
-		4, 5, 6,
-		6, 7, 4,
-
-		// Left
-		0, 4, 7,
-		7, 3, 0,
-
-		// Right
-		1, 5, 6,
-		6, 2, 1,
-
-		// Bottom
-		0, 1, 5,
-		5, 4, 0,
-
-		// Top
-		3, 2, 6,
-		6, 7, 3
+		// 12 triangles / 36 indices.
+		0, 1, 2, 2, 3, 0,
+		4, 5, 6, 6, 7, 4,
+		8, 9, 10, 10, 11, 8,
+		12, 13, 14, 14, 15, 12,
+		16, 17, 18, 18, 19, 16,
+		20, 21, 22, 22, 23, 20
 	};
 
 	glEnable(GL_DEPTH_TEST); // Depth testing stops far-away surfaces from incorrectly drawing over nearer ones.
@@ -177,16 +186,20 @@ bool Application::InitializeGraphics()
 	// 0: layout(location = 0) in vec3 aPosition;
 	// 3: each vertex has 3 componenets x y z
 	// GL_FLOAT: each component is a float
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr); 
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr); 
 
 	// enable vertex attribute
 	glEnableVertexAttribArray(0); // enables shader input location 0
 
 	// vertex shader (GLSL code)
+	// vNormal = Transform the normal correctly when the object rotates or scales.
 	const char* vertexShaderSource = R"(
 		#version 460 core
 
 		layout(location = 0) in vec3 aPosition;
+		layout(location = 1) in vec3 aNormal;
+
+		out vec3 vNormal;
 
 		uniform mat4 uModel;
 		uniform mat4 uView;
@@ -194,25 +207,33 @@ bool Application::InitializeGraphics()
 
 		void main()
 		{
-			gl_Position =
-				uProjection *
-				uView *
-				uModel *
-				vec4(aPosition, 1.0);
+			gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);
+			vNormal = mat3(transpose(inverse(uModel))) * aNormal;
 		}
 	)";
 
 	// fragment shader
+	// dot() = How much is this surface facing the light?
 	const char* fragmentShaderSource = R"(
 		#version 460 core
+
+		in vec3 vNormal;
 
 		out vec4 FragColor;
 
 		uniform vec3 uColor;
+		uniform vec3 uLightDirection;
 
 		void main()
 		{
-			FragColor = vec4(uColor, 1.0);
+			vec3 normal = normalize(vNormal);
+			vec3 lightDirection = normalize(uLightDirection);
+
+			float diffuse = max(dot(normal, lightDirection), 0.0);
+			float ambient = 0.25;
+			float brightness = ambient + diffuse * 0.75;
+
+			FragColor = vec4(uColor * brightness, 1.0);
 		}
 	)";
 
@@ -379,8 +400,6 @@ void Application::Update()
 	glm::vec3 target = m_playerPosition + glm::vec3(0.0f, 0.5f, 0.0f);
 	glm::vec3 desiredCameraPosition = m_camera.GetPosition();
 
-	//glm::vec3 obstacleHalfSize(0.5f, 0.5f, 0.5f);
-
 	float greenHitDistance = 0.0f;
 	float blueHitDistance = 0.0f;
 
@@ -415,6 +434,8 @@ void Application::Render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear depth buffer and the colour buffer
 
 	m_shader->Bind(); // Use our shader program.
+
+	m_shader->SetVec3("uLightDirection", glm::vec3(-0.5f, 1.0f, 0.3f)); // Light is coming from above and slightly from one side.
 
 	// camera
 	glm::mat4 view = m_camera.GetViewMatrix(m_playerPosition); // camera needs to know what is following
