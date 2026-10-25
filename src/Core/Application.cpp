@@ -375,6 +375,38 @@ void Application::Update()
 	}
 
 	m_camera.Update(m_playerPosition);
+
+	glm::vec3 target = m_playerPosition + glm::vec3(0.0f, 0.5f, 0.0f);
+	glm::vec3 desiredCameraPosition = m_camera.GetPosition();
+
+	//glm::vec3 obstacleHalfSize(0.5f, 0.5f, 0.5f);
+
+	float greenHitDistance = 0.0f;
+	float blueHitDistance = 0.0f;
+
+	bool hitGreen2 = LineIntersectsAABB(target, desiredCameraPosition, m_greenCubePosition, obstacleHalfSize, greenHitDistance);
+	bool hitBlue2 = LineIntersectsAABB(target, desiredCameraPosition, m_blueCubePosition, obstacleHalfSize, blueHitDistance);
+
+	float closestHit = glm::length(desiredCameraPosition - target);
+	bool cameraBlocked = false;
+
+	if (hitGreen2 && greenHitDistance < closestHit)
+	{
+		closestHit = greenHitDistance;
+		cameraBlocked = true;
+	}
+
+	if (hitBlue2 && blueHitDistance < closestHit)
+	{
+		closestHit = blueHitDistance;
+		cameraBlocked = true;
+	}
+
+	if (cameraBlocked)
+	{
+		glm::vec3 direction = glm::normalize(desiredCameraPosition - target);
+		m_camera.SetPosition(target + direction * (closestHit - 0.2f));
+	}
 }
 
 void Application::Render()
@@ -437,6 +469,49 @@ bool Application::CheckCollisionXZ(const glm::vec3& aPosition, const glm::vec3& 
 	bool overlapZ = std::abs(aPosition.z - bPosition.z) < (aHalfSize.z + bHalfSize.z);
 
 	return overlapX && overlapZ;
+}
+
+bool Application::LineIntersectsAABB(const glm::vec3& start, const glm::vec3& end, const glm::vec3& boxPosition, const glm::vec3& boxHalfSize, float& hitDistance) const
+{
+	glm::vec3 direction = end - start;
+	float length = glm::length(direction);
+
+	if (length <= 0.0001f)
+		return false;
+
+	direction = glm::normalize(direction);
+
+	glm::vec3 boxMin = boxPosition - boxHalfSize;
+	glm::vec3 boxMax = boxPosition + boxHalfSize;
+
+	float tMin = 0.0f;
+	float tMax = length;
+
+	for (int axis = 0; axis < 3; ++axis)
+	{
+		if (std::abs(direction[axis]) < 0.0001f)
+		{
+			if (start[axis] < boxMin[axis] || start[axis] > boxMax[axis])
+				return false;
+
+			continue;
+		}
+
+		float t1 = (boxMin[axis] - start[axis]) / direction[axis];
+		float t2 = (boxMax[axis] - start[axis]) / direction[axis];
+
+		if (t1 > t2)
+			std::swap(t1, t2);
+
+		tMin = std::max(tMin, t1);
+		tMax = std::min(tMax, t2);
+
+		if (tMin > tMax)
+			return false;
+	}
+
+	hitDistance = tMin;
+	return true;
 }
 
 void Application::Shutdown()

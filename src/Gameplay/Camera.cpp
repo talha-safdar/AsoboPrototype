@@ -57,6 +57,16 @@ glm::vec3 Camera::GetRight() const
     return m_right;
 }
 
+const glm::vec3& Camera::GetPosition() const
+{
+    return m_position;
+}
+
+void Camera::SetPosition(const glm::vec3& position)
+{
+    m_position = position;
+}
+
 void Camera::Update(const glm::vec3& target)
 {
     glm::vec3 targetPosition = target + glm::vec3(0.0f, 0.5f, 0.0f); // look at upper body

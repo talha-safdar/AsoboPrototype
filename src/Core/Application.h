@@ -86,6 +86,9 @@ private:
 
 	bool CheckCollisionXZ(const glm::vec3& aPosition, const glm::vec3& aHalfSize, const glm::vec3& bPosition, const glm::vec3& bHalfSize) const;
 
+	// Does the line between player and camera pass through this box ?
+	bool LineIntersectsAABB(const glm::vec3& start, const glm::vec3& end, const glm::vec3& boxPosition, const glm::vec3& boxHalfSize, float& hitDistance) const;
+
 	/*
 		stop loop
 		↓

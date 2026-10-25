@@ -12,6 +12,8 @@ public:
 	glm::mat4 GetViewMatrix(const glm::vec3& target) const;
 	glm::vec3 GetForward() const;
 	glm::vec3 GetRight() const;
+	const glm::vec3& GetPosition() const; // lets Application inspect where the camera wants to be.
+	void SetPosition(const glm::vec3& position); // lets us correct it if that position would go through an obstacle.
 
 private:
 	void UpdateVectors();
