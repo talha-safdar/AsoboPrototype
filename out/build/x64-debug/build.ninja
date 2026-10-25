@@ -52,7 +52,7 @@ build cmake_object_order_depends_target_AsoboPrototype: phony || cmake_object_or
 build CMakeFiles\AsoboPrototype.dir\src\AsoboPrototype.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\AsoboPrototype.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -62,7 +62,7 @@ build CMakeFiles\AsoboPrototype.dir\src\AsoboPrototype.cpp.obj: CXX_COMPILER__As
 build CMakeFiles\AsoboPrototype.dir\src\Core\Application.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Core\Application.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Core
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -72,7 +72,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Core\Application.cpp.obj: CXX_COMPILER__
 build CMakeFiles\AsoboPrototype.dir\src\Graphics\Shader.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Graphics\Shader.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Graphics
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -82,7 +82,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Graphics\Shader.cpp.obj: CXX_COMPILER__A
 build CMakeFiles\AsoboPrototype.dir\src\Graphics\Mesh.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Graphics\Mesh.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Graphics
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -92,7 +92,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Graphics\Mesh.cpp.obj: CXX_COMPILER__Aso
 build CMakeFiles\AsoboPrototype.dir\src\Gameplay\Camera.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Gameplay\Camera.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Gameplay
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -102,7 +102,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Gameplay\Camera.cpp.obj: CXX_COMPILER__A
 build CMakeFiles\AsoboPrototype.dir\src\Gameplay\Enemy.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Gameplay\Enemy.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Gameplay
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -112,7 +112,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Gameplay\Enemy.cpp.obj: CXX_COMPILER__As
 build CMakeFiles\AsoboPrototype.dir\src\Physics\Collision.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Physics\Collision.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Physics
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -122,7 +122,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Physics\Collision.cpp.obj: CXX_COMPILER_
 build CMakeFiles\AsoboPrototype.dir\src\Gameplay\Player.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Gameplay\Player.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Gameplay
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -132,7 +132,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Gameplay\Player.cpp.obj: CXX_COMPILER__A
 build CMakeFiles\AsoboPrototype.dir\src\Navigation\NavigationGrid.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Navigation\NavigationGrid.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Navigation
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -142,7 +142,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Navigation\NavigationGrid.cpp.obj: CXX_C
 build CMakeFiles\AsoboPrototype.dir\src\Navigation\Pathfinder.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Navigation\Pathfinder.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Navigation
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -152,7 +152,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Navigation\Pathfinder.cpp.obj: CXX_COMPI
 build CMakeFiles\AsoboPrototype.dir\src\Graphics\Texture.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Graphics\Texture.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Graphics
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -162,7 +162,17 @@ build CMakeFiles\AsoboPrototype.dir\src\Graphics\Texture.cpp.obj: CXX_COMPILER__
 build CMakeFiles\AsoboPrototype.dir\src\Graphics\Vertex.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Graphics\Vertex.cpp || cmake_object_order_depends_target_AsoboPrototype
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
-  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
+  OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Graphics
+  TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
+  TARGET_PDB = AsoboPrototype.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\AsoboPrototype.dir
+
+build CMakeFiles\AsoboPrototype.dir\src\Graphics\Model.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Graphics\Model.cpp || cmake_object_order_depends_target_AsoboPrototype
+  CONFIG = Debug
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\external\stb -IC:\GitHub\Personal\AsoboPrototype\external\cgltf -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
   OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
   OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Graphics
   TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
@@ -177,7 +187,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Graphics\Vertex.cpp.obj: CXX_COMPILER__A
 #############################################
 # Link the executable AsoboPrototype.exe
 
-build AsoboPrototype.exe: CXX_EXECUTABLE_LINKER__AsoboPrototype_Debug CMakeFiles\AsoboPrototype.dir\src\AsoboPrototype.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Core\Application.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Shader.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Mesh.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Gameplay\Camera.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Gameplay\Enemy.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Physics\Collision.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Gameplay\Player.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Navigation\NavigationGrid.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Navigation\Pathfinder.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Texture.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Vertex.cpp.obj | external\SDL\SDL3-static.lib glad.lib external\glm\glm\glm.lib C$:\Program$ Files\Microsoft$ Visual$ Studio\18\Professional\VC\Tools\MSVC\14.51.36231\include\manifest\segmentheap.manifest || external\SDL\SDL3-static.lib external\glm\glm\glm.lib glad.lib
+build AsoboPrototype.exe: CXX_EXECUTABLE_LINKER__AsoboPrototype_Debug CMakeFiles\AsoboPrototype.dir\src\AsoboPrototype.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Core\Application.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Shader.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Mesh.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Gameplay\Camera.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Gameplay\Enemy.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Physics\Collision.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Gameplay\Player.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Navigation\NavigationGrid.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Navigation\Pathfinder.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Texture.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Vertex.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Model.cpp.obj | external\SDL\SDL3-static.lib glad.lib external\glm\glm\glm.lib C$:\Program$ Files\Microsoft$ Visual$ Studio\18\Professional\VC\Tools\MSVC\14.51.36231\include\manifest\segmentheap.manifest || external\SDL\SDL3-static.lib external\glm\glm\glm.lib glad.lib
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console

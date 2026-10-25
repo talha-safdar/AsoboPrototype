@@ -125,6 +125,13 @@ bool Application::InitializeGraphics()
 		return false;
 	}
 
+	m_testModel = std::make_unique<Model>();
+
+	if (!m_testModel->Load("assets/models/BoxVertexColors.glb"))
+	{
+		return false;
+	}
+
 	std::vector<Vertex> vertices =
 	{
 		// Back
@@ -426,7 +433,6 @@ void Application::Render()
 	playerModel = glm::rotate(playerModel, m_player.GetYaw(), glm::vec3(0.0f, 1.0f, 0.0f));
 	playerModel = glm::scale(playerModel, glm::vec3(0.6f, 1.0f, 1.3f));
 	m_shader->SetMat4("uModel", playerModel);
-	// m_shader->SetVec3("uColor", glm::vec3(1.0f, 0.5f, 0.2f));
 	m_shader->SetInt("uUseTexture", 1); // 1 textured uploaded
 	m_shader->SetVec3("uColor", glm::vec3(1.0f));
 	m_mesh->Draw(); // GPU, use this mesh configuration and draw triangles using these indices.
@@ -497,7 +503,14 @@ void Application::Render()
 		m_mesh->Draw();
 	}
 
-	//m_mesh->Draw();
+	// 3d model
+	glm::mat4 testModel = glm::mat4(1.0f);
+	testModel = glm::translate(testModel, glm::vec3(2.0f, 0.0f, 2.0f));
+	m_shader->SetMat4("uModel", testModel);
+	m_shader->SetVec3("uColor", glm::vec3(0.8f));
+	m_shader->SetInt("uUseTexture", 0);
+
+	m_testModel->Draw();
 
 	SDL_GL_SwapWindow(m_window);
 }
@@ -536,6 +549,7 @@ void Application::Shutdown()
 			 ├── ->Bind()
 			 └── ->Create()
 	*/
+	m_testModel.reset();
 	m_texture.reset();
 	m_mesh.reset(); // delete shader program
 	m_shader.reset(); // delete shader program

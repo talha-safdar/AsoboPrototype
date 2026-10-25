@@ -36,7 +36,9 @@ add_executable (AsoboPrototype
 "src/Graphics/Texture.h" 
 "src/Graphics/Texture.cpp" 
 "src/Graphics/Vertex.h"
-"src/Graphics/Vertex.cpp")
+"src/Graphics/Vertex.cpp" 
+"src/Graphics/Model.h" 
+"src/Graphics/Model.cpp")
 
 # GLAD
 add_library(glad STATIC
@@ -59,6 +61,10 @@ target_link_libraries(AsoboPrototype
 )
 
 target_include_directories(AsoboPrototype PRIVATE external/stb)
+
+# cgltf for model uploading
+target_include_directories(AsoboPrototype PRIVATE external/cgltf)
+
 add_custom_command(TARGET AsoboPrototype POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets $<TARGET_FILE_DIR:AsoboPrototype>/assets)
 
 add_subdirectory(external/SDL EXCLUDE_FROM_ALL)
