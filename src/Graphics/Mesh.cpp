@@ -52,13 +52,17 @@ bool Mesh::Create(const std::vector<float>&vertices, const std::vector<unsigned 
     // layout(location = 0) in vec3 aPosition;
     // layout(location = 1) in vec3 aNormal;
 
-    // Attribute 0: position.
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), nullptr);
+    // Attribute 0: position
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), nullptr);
     glEnableVertexAttribArray(0);
 
-    // Attribute 1: normal.
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), reinterpret_cast<void*>(3 * sizeof(float)));
+    // Attribute 1: normal
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), reinterpret_cast<void*>(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
+
+    // Attribute 2: UV
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), reinterpret_cast<void*>(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
 
     // VBO memory
     // ↓

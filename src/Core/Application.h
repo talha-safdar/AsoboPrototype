@@ -8,6 +8,7 @@
 #include "../Gameplay/Player.h"
 #include "../Navigation/NavigationGrid.h"
 #include "../Navigation/Pathfinder.h"
+#include "../Graphics/Texture.h"
 
 #include <iostream>
 #include <glad/gl.h>
@@ -113,6 +114,7 @@ private:
 	Player m_player;
 	NavigationGrid m_navigationGrid{ 21, 21, 1.0f };
 	Pathfinder m_pathfinder;
+	std::unique_ptr<Texture> m_texture;
 
 	// unique_ptr is used to manage the lifetime of Shader and Mesh objects (ownership),
 	// ensuring they are properly deleted when the Application object is destroyed.

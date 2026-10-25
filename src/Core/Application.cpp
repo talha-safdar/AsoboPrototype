@@ -118,43 +118,50 @@ bool Application::Initialize()
 
 bool Application::InitializeGraphics()
 {
+	m_texture = std::make_unique<Texture>();
+
+	if (!m_texture->Load("assets/textures/cursed-island.png"))
+	{
+		return false;
+	}
+
 	std::vector<float> vertices =
 	{
 		// Back
-		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-		 0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-		 0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
+		 0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
+		 0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
 
 		// Front
-		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-		 0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-		-0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f,
+		 0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f, 0.0f,
+		 0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f, 1.0f,
 
 		// Left
-		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-		-0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-		-0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
+		-0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
 
 		// Right
-		 0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-		 0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-		 0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-		 0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+		 0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
+		 0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+		 0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
 
 		 // Bottom
-		 -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-		  0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-		  0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-		 -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+		 -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
+		  0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
+		  0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
+		 -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
 
 		 // Top
-		 -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-		  0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-		  0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-		 -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f
+		 -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
+		  0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
+		  0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,
+		 -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
 	};
 
 	// 2 triangles, for GPU 2 draw 2 triangles which form a rectangle
@@ -234,8 +241,10 @@ bool Application::InitializeGraphics()
 
 		layout(location = 0) in vec3 aPosition;
 		layout(location = 1) in vec3 aNormal;
+		layout(location = 2) in vec2 aTexCoord;
 
 		out vec3 vNormal;
+		out vec2 vTexCoord;
 
 		uniform mat4 uModel;
 		uniform mat4 uView;
@@ -245,6 +254,7 @@ bool Application::InitializeGraphics()
 		{
 			gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);
 			vNormal = mat3(transpose(inverse(uModel))) * aNormal;
+			vTexCoord = aTexCoord;
 		}
 	)";
 
@@ -254,11 +264,14 @@ bool Application::InitializeGraphics()
 		#version 460 core
 
 		in vec3 vNormal;
+		in vec2 vTexCoord;
 
 		out vec4 FragColor;
 
 		uniform vec3 uColor;
 		uniform vec3 uLightDirection;
+		uniform sampler2D uTexture;
+		uniform int uUseTexture;
 
 		void main()
 		{
@@ -269,7 +282,15 @@ bool Application::InitializeGraphics()
 			float ambient = 0.25;
 			float brightness = ambient + diffuse * 0.75;
 
-			FragColor = vec4(uColor * brightness, 1.0);
+			vec3 baseColor = uColor;
+
+			if (uUseTexture == 1)
+			{
+				// Read the pixel from the texture at this UV position.
+				baseColor *= texture(uTexture, vTexCoord).rgb;
+			}
+
+			FragColor = vec4(baseColor * brightness, 1.0);
 		}
 	)";
 
@@ -387,7 +408,8 @@ void Application::Render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear depth buffer and the colour buffer
 
 	m_shader->Bind(); // Use our shader program.
-
+	m_texture->Bind(0); // image bint to slot 0
+	m_shader->SetInt("uTexture", 0);
 
 	// They are extra values the shader needs for the current draw.
 	m_shader->SetVec3("uLightDirection", glm::vec3(-0.5f, 1.0f, 0.3f)); // Light is coming from above and slightly from one side.
@@ -404,7 +426,9 @@ void Application::Render()
 	playerModel = glm::rotate(playerModel, m_player.GetYaw(), glm::vec3(0.0f, 1.0f, 0.0f));
 	playerModel = glm::scale(playerModel, glm::vec3(0.6f, 1.0f, 1.3f));
 	m_shader->SetMat4("uModel", playerModel);
-	m_shader->SetVec3("uColor", glm::vec3(1.0f, 0.5f, 0.2f));
+	// m_shader->SetVec3("uColor", glm::vec3(1.0f, 0.5f, 0.2f));
+	m_shader->SetInt("uUseTexture", 1); // 1 textured uploaded
+	m_shader->SetVec3("uColor", glm::vec3(1.0f));
 	m_mesh->Draw(); // GPU, use this mesh configuration and draw triangles using these indices.
 
 	// floor
@@ -413,6 +437,7 @@ void Application::Render()
 	floorModel = glm::scale(floorModel, glm::vec3(20.0f, 0.1f, 20.0f));
 	m_shader->SetMat4("uModel", floorModel);
 	m_shader->SetVec3("uColor", glm::vec3(0.25f, 0.25f, 0.25f));
+	m_shader->SetInt("uUseTexture", 0); // no texture to apply
 	m_mesh->Draw();
 
 	// green box
@@ -420,6 +445,7 @@ void Application::Render()
 	objectModel = glm::translate(objectModel, m_obstacles[0].position);
 	m_shader->SetMat4("uModel", objectModel);
 	m_shader->SetVec3("uColor", glm::vec3(0.2f, 0.7f, 0.3f));
+	m_shader->SetInt("uUseTexture", 1);
 	m_mesh->Draw();
 
 	// blue box
@@ -427,6 +453,7 @@ void Application::Render()
 	objectModel = glm::translate(objectModel, m_obstacles[1].position);
 	m_shader->SetMat4("uModel", objectModel);
 	m_shader->SetVec3("uColor", glm::vec3(0.3f, 0.4f, 0.9f));
+	m_shader->SetInt("uUseTexture", 0);
 	m_mesh->Draw();
 
 	// moving enemy
@@ -453,6 +480,7 @@ void Application::Render()
 	}
 	m_shader->SetMat4("uModel", enemyModel);
 	m_shader->SetVec3("uColor", enemyColor);
+	m_shader->SetInt("uUseTexture", 0); // 1: apply texture, 0: do not apply texture
 	m_mesh->Draw();
 
 	// draw waypoints of pathfinding
@@ -508,6 +536,7 @@ void Application::Shutdown()
 			 ├── ->Bind()
 			 └── ->Create()
 	*/
+	m_texture.reset();
 	m_mesh.reset(); // delete shader program
 	m_shader.reset(); // delete shader program
 

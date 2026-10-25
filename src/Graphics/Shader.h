@@ -31,6 +31,7 @@ public:
 	void SetMat4(const std::string& name, const glm::mat4& value) const;
 
 	void SetVec3(const std::string& name, const glm::vec3& value) const;
+	void SetInt(const std::string& name, int value) const;
 
 private:
 	bool CompileShader(GLuint shader, const std::string& source, const char* shaderName) const;

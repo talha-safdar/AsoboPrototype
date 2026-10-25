@@ -32,7 +32,9 @@ add_executable (AsoboPrototype
 "src/Navigation/NavigationGrid.h" 
 "src/Navigation/NavigationGrid.cpp" 
 "src/Navigation/Pathfinder.h" 
-"src/Navigation/Pathfinder.cpp")
+"src/Navigation/Pathfinder.cpp" 
+"src/Graphics/Texture.h" 
+"src/Graphics/Texture.cpp")
 
 # GLAD
 add_library(glad STATIC
@@ -53,6 +55,9 @@ target_link_libraries(AsoboPrototype
         glad
         glm::glm
 )
+
+target_include_directories(AsoboPrototype PRIVATE external/stb)
+add_custom_command(TARGET AsoboPrototype POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets $<TARGET_FILE_DIR:AsoboPrototype>/assets)
 
 add_subdirectory(external/SDL EXCLUDE_FROM_ALL)
 add_subdirectory(external/glm EXCLUDE_FROM_ALL)
