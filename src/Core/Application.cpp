@@ -172,13 +172,29 @@ bool Application::InitializeGraphics()
 	*/
 	std::vector<unsigned int> indices =
 	{
-		// 12 triangles / 36 indices.
-		0, 1, 2, 2, 3, 0,
-		4, 5, 6, 6, 7, 4,
-		8, 9, 10, 10, 11, 8,
-		12, 13, 14, 14, 15, 12,
-		16, 17, 18, 18, 19, 16,
-		20, 21, 22, 22, 23, 20
+		// Back (-Z)
+		0, 2, 1,
+		0, 3, 2,
+
+		// Front (+Z)
+		4, 5, 6,
+		4, 6, 7,
+
+		// Left (-X)
+		8, 9, 10,
+		8, 10, 11,
+
+		// Right (+X)
+		12, 14, 13,
+		12, 15, 14,
+
+		// Bottom (-Y)
+		16, 17, 18,
+		16, 18, 19,
+
+		// Top (+Y)
+		20, 22, 21,
+		20, 23, 22
 	};
 
 	glEnable(GL_DEPTH_TEST); // Depth testing stops far-away surfaces from incorrectly drawing over nearer ones.
