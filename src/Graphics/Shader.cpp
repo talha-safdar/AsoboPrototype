@@ -63,6 +63,7 @@ bool Shader::Create(const std::string& vertexSource, const std::string& fragment
 
     glLinkProgram(m_program);
 
+    // delete temporary shader objects after linking
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
@@ -73,12 +74,7 @@ bool Shader::Create(const std::string& vertexSource, const std::string& fragment
     {
         char infoLog[1024];
 
-        glGetProgramInfoLog(
-            m_program,
-            sizeof(infoLog),
-            nullptr,
-            infoLog
-        );
+        glGetProgramInfoLog(m_program, sizeof(infoLog), nullptr, infoLog);
 
         std::cerr
             << "Shader program linking failed:\n"
@@ -96,5 +92,7 @@ bool Shader::Create(const std::string& vertexSource, const std::string& fragment
 
 void Shader::Bind() const
 {
+    // For the things I'm about to draw, use this vertex/fragment shader program.
+    // that program stays active until you bind another one.
     glUseProgram(m_program);
 }

@@ -27,15 +27,16 @@ bool Mesh::Create(const std::vector<float>&vertices, const std::vector<unsigned 
 
 	glGenVertexArrays(1, &m_vao);
 	glGenBuffers(1, &m_vbo);
-    glGenBuffers(1, &m_ebo);
+    glGenBuffers(1, &m_ebo); 
 
-	glBindVertexArray(m_vao);
+	glBindVertexArray(m_vao); 
 
-	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, m_vbo); // This VBO is now the current vertex buffer.
 
+    // copies our CPU vertex array into GPU-accessible memory.
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo); // telling the renderer which vertices form which triangles.
 
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
 

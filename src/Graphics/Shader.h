@@ -11,9 +11,21 @@ class Shader
 {
 public:
 	Shader();
+
+	// RAII cleanup.
 	~Shader();
 
+	/*
+	* compiles vertex shader
+	* compiles fragment shader
+	* checks errors
+	* links them into a program
+	*/
 	bool Create(const std::string& vertexSource, const std::string& fragmentSource);
+
+	/*
+	* makes that shader program active for rendering.
+	*/
 	void Bind() const;
 
 private:

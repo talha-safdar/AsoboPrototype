@@ -1,0 +1,47 @@
+Windows starts executable
+          ↓
+        main()
+          ↓
+     Application
+          ↓
+     Initialize()
+          │
+          ├── SDL
+          ├── Window
+          ├── OpenGL Context
+          ├── GLAD
+          │
+          └── Graphics
+                │
+                ├── Shader
+                │     └── GLSL program
+                │
+                └── Mesh
+                      ├── VAO
+                      ├── VBO
+                      └── EBO
+          ↓
+        Run()
+          │
+          ┌───────────────────────┐
+          │                       │
+          ▼                       │
+   ProcessEvents()                │
+          ↓                       │
+      Update()                    │
+          ↓                       │
+      Render()                    │
+          │                       │
+          ├── Shader::Bind()      │
+          ├── Mesh::Draw()        │
+          └── SwapWindow()        │
+          │                       │
+          └──────── next frame ───┘
+          ↓
+       Shutdown
+          ↓
+     Program closes
+
+Application owns the game lifetime.
+Shader owns the shader program.
+Mesh owns geometry buffers.
