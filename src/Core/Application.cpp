@@ -263,6 +263,8 @@ void Application::Update()
 	const float movementSpeed = 3.0f;
 	const float movementAmount = movementSpeed * m_deltaTime;
 
+	glm::vec3 previousPosition = m_playerPosition; // Player just moved inside a wall? then restore
+
 	glm::vec3 forward = m_camera.GetForward();
 	glm::vec3 right = m_camera.GetRight();
 	glm::vec3 movement(0.0f);
@@ -309,14 +311,49 @@ void Application::Update()
 	if (glm::length(movement) > 0.0f)
 	{
 		movement = glm::normalize(movement);
-		m_playerPosition += movement * movementAmount;
 		m_playerDirection = movement;
 
 		float targetYaw = atan2(m_playerDirection.x, m_playerDirection.z);
-		float angleDifference = std::remainder(targetYaw - m_playerYaw, glm::two_pi<float>()); // find shortest rotatiion path
+		float angleDifference = std::remainder(targetYaw - m_playerYaw, glm::two_pi<float>());
 		float rotationAmount = std::clamp(10.0f * m_deltaTime, 0.0f, 1.0f);
 
-		m_playerYaw += angleDifference * rotationAmount; // gradually turn
+		m_playerYaw += angleDifference * rotationAmount;
+
+		glm::vec3 playerHalfSize(0.3f, 0.5f, 0.65f);
+		glm::vec3 obstacleHalfSize(0.5f, 0.5f, 0.5f);
+
+		m_playerPosition.x += movement.x * movementAmount;
+
+		bool hitGreenX = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_greenCubePosition, obstacleHalfSize);
+		bool hitBlueX = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_blueCubePosition, obstacleHalfSize);
+
+		if (hitGreenX || hitBlueX)
+		{
+			m_playerPosition.x = previousPosition.x;
+		}
+
+		m_playerPosition.z += movement.z * movementAmount;
+
+		bool hitGreenZ = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_greenCubePosition, obstacleHalfSize);
+		bool hitBlueZ = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_blueCubePosition, obstacleHalfSize);
+
+		if (hitGreenZ || hitBlueZ)
+		{
+			m_playerPosition.z = previousPosition.z;
+		}
+	}
+
+	glm::vec3 playerHalfSize(0.3f, 0.5f, 0.65f);
+	glm::vec3 obstacleHalfSize(0.5f, 0.5f, 0.5f);
+
+	bool hitGreen = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_greenCubePosition, obstacleHalfSize);
+	bool hitBlue = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_blueCubePosition, obstacleHalfSize);
+
+	if (hitGreen || hitBlue)
+	{
+		// undo the movement
+		m_playerPosition.x = previousPosition.x;
+		m_playerPosition.z = previousPosition.z;
 	}
 
 	m_camera.Update(m_playerPosition);
@@ -354,19 +391,34 @@ void Application::Render()
 
 	// green box
 	glm::mat4 objectModel = glm::mat4(1.0f);
-	objectModel = glm::translate(objectModel, glm::vec3(4.0f, 0.0f, -5.0f));
+	objectModel = glm::translate(objectModel, m_greenCubePosition);
 	m_shader->SetMat4("uModel", objectModel);
 	m_shader->SetVec3("uColor", glm::vec3(0.2f, 0.7f, 0.3f));
 	m_mesh->Draw();
 
 	// blue box
 	objectModel = glm::mat4(1.0f);
-	objectModel = glm::translate(objectModel, glm::vec3(-4.0f, 0.0f, -8.0f));
+	objectModel = glm::translate(objectModel, m_blueCubePosition);
 	m_shader->SetMat4("uModel", objectModel);
 	m_shader->SetVec3("uColor", glm::vec3(0.3f, 0.4f, 0.9f));
 	m_mesh->Draw();
 
 	SDL_GL_SwapWindow(m_window);
+}
+
+bool Application::CheckCollisionXZ(const glm::vec3& aPosition, const glm::vec3& aHalfSize, const glm::vec3& bPosition, const glm::vec3& bHalfSize) const
+{
+	/*
+		Are they overlapping on X?
+		AND
+		Are they overlapping on Z?
+
+		Yes + Yes = collision
+	*/
+	bool overlapX = std::abs(aPosition.x - bPosition.x) < (aHalfSize.x + bHalfSize.x);
+	bool overlapZ = std::abs(aPosition.z - bPosition.z) < (aHalfSize.z + bHalfSize.z);
+
+	return overlapX && overlapZ;
 }
 
 void Application::Shutdown()

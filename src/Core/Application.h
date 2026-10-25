@@ -84,6 +84,8 @@ private:
 	*/
 	void Render();
 
+	bool CheckCollisionXZ(const glm::vec3& aPosition, const glm::vec3& aHalfSize, const glm::vec3& bPosition, const glm::vec3& bHalfSize) const;
+
 	/*
 		stop loop
 		↓
@@ -117,6 +119,9 @@ private:
 	float m_playerYaw = glm::pi<float>(); // left-right rotation
 	float m_verticalVelocity = 0.0f; // how fast vertically moving
 	bool m_isGrounded = true; // is standing on the floor
+
+	glm::vec3 m_greenCubePosition{ 4.0f, 0.0f, -5.0f };
+	glm::vec3 m_blueCubePosition{ -4.0f, 0.0f, -8.0f };
 
 	float m_deltaTime;
 	Uint64 m_lastFrameTime;
