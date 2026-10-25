@@ -9,13 +9,20 @@ Enemy::Enemy(const glm::vec3& position) :
 	m_moveSpeed(2.0f),
 	m_detectionRange(6.0f),
 	m_attackRange(1.2f),
-	m_fieldOfView(90.0f)
+	m_fieldOfView(90.0f),
+	m_attackCooldown(1.0f),
+	m_attackTimer(0.0f)
 {
 
 }
 
-void Enemy::Update(const glm::vec3& playerPosition, float deltaTime, const std::vector<AABB>& obstacles)
+bool Enemy::Update(const glm::vec3& playerPosition, float deltaTime, const std::vector<AABB>& obstacles)
 {
+	if (m_attackTimer > 0.0f)
+	{
+		m_attackTimer -= deltaTime;
+	}
+
 	glm::vec3 toPlayer = playerPosition - m_position;
 	toPlayer.y = 0.0f;
 
@@ -24,7 +31,7 @@ void Enemy::Update(const glm::vec3& playerPosition, float deltaTime, const std::
 	if (distanceToPlayer > m_detectionRange || distanceToPlayer <= 0.001f) // Too far away → can't see you.
 	{
 		m_state = State::Idle;
-		return;
+		return false;
 	}
 
 	glm::vec3 directionToPlayer = glm::normalize(toPlayer);
@@ -36,7 +43,7 @@ void Enemy::Update(const glm::vec3& playerPosition, float deltaTime, const std::
 	if (facingAmount < fovThreshold)
 	{
 		m_state = State::Idle;
-		return;
+		return false;
 	}
 
 	glm::vec3 enemyEye = m_position + glm::vec3(0.0f, 0.5f, 0.0f);
@@ -49,19 +56,28 @@ void Enemy::Update(const glm::vec3& playerPosition, float deltaTime, const std::
 		if (Collision::LineIntersectsAABB(enemyEye, playerTarget, obstacle, hitDistance))
 		{
 			m_state = State::Idle;
-			return;
+			return false;
 		}
 	}
 
 	if (distanceToPlayer <= m_attackRange)
 	{
 		m_state = State::Attack;
-		return;
+
+		if (m_attackTimer <= 0.0f)
+		{
+			m_attackTimer = m_attackCooldown;
+			return true;
+		}
+
+		return false;
 	}
 
 	m_state = State::Chase;
 	m_forward = directionToPlayer;
 	m_position += directionToPlayer * m_moveSpeed * deltaTime;
+
+	return false;
 }
 
 const glm::vec3& Enemy::GetPosition() const

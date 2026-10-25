@@ -319,10 +319,19 @@ void Application::Update()
 
 	bool jumpPressed = keyboardState[SDL_SCANCODE_SPACE];
 
+	// update player
 	m_player.Update(movement, jumpPressed, m_deltaTime, m_obstacles);
 
-	m_enemy.Update(m_player.GetPosition(), m_deltaTime, m_obstacles);
+	// update enemy
+	bool enemyAttacked = m_enemy.Update(m_player.GetPosition(), m_deltaTime, m_obstacles);
 
+	if (enemyAttacked)
+	{
+		m_player.TakeDamage(10);
+		std::cout << "Player health: " << m_player.GetHealth() << std::endl;
+	}
+
+	// update camera
 	m_camera.Update(m_player.GetPosition());
 }
 

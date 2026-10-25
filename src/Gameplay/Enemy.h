@@ -25,7 +25,8 @@ public:
 public:
 	Enemy(const glm::vec3& position);
 
-	void Update(const glm::vec3& playerPosition, float deltaTime, const std::vector<AABB>& obstacles);
+	// bool means Did the enemy successfully attack this frame?
+	bool Update(const glm::vec3& playerPosition, float deltaTime, const std::vector<AABB>& obstacles);
 
 	const glm::vec3& GetPosition() const;
 	State GetState() const;
@@ -41,4 +42,7 @@ private:
 
 	glm::vec3 m_forward;
 	float m_fieldOfView;
+
+	float m_attackCooldown; // attackCooldown = attack every 1 second maximum
+	float m_attackTimer; // attackTimer = time remaining before next attack
 };

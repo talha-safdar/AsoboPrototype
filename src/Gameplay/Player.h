@@ -21,6 +21,9 @@ public:
 
 	const glm::vec3& GetPosition() const;
 	float GetYaw() const;
+	void TakeDamage(int damage);
+	int GetHealth() const;
+	bool IsAlive() const;
 
 private:
 	glm::vec3 m_position;
@@ -30,4 +33,6 @@ private:
 	float m_verticalVelocity;
 
 	bool m_isGrounded;
+
+	int m_health;
 };

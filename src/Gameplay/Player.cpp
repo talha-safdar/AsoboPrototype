@@ -9,7 +9,8 @@ Player::Player() :
 	m_direction(0.0f, 0.0f, -1.0f),
 	m_yaw(glm::pi<float>()),
 	m_verticalVelocity(0.0f),
-	m_isGrounded(true)
+	m_isGrounded(true),
+	m_health(100)
 {}
 
 void Player::Update(const glm::vec3 & movementInput, bool jumpPressed, float deltaTime, const std::vector<AABB>&obstacles)
@@ -94,4 +95,24 @@ const glm::vec3& Player::GetPosition() const
 float Player::GetYaw() const
 {
 	return m_yaw;
+}
+
+void Player::TakeDamage(int damage)
+{
+	m_health -= damage;
+
+	if (m_health < 0)
+	{
+		m_health = 0;
+	}
+}
+
+int Player::GetHealth() const
+{
+	return m_health;
+}
+
+bool Player::IsAlive() const
+{
+	return m_health > 0;
 }
