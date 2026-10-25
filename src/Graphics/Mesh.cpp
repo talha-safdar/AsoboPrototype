@@ -1,5 +1,7 @@
 #include "Mesh.h"
 
+#include <cstddef>
+
 Mesh::Mesh() : m_vao(0), m_vbo(0), m_ebo(0), m_indexCount(0)
 {}
 
@@ -21,7 +23,7 @@ Mesh::~Mesh()
     }
 }
 
-bool Mesh::Create(const std::vector<float>&vertices, const std::vector<unsigned int>&indices)
+bool Mesh::Create(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices)
 {
 	m_indexCount = static_cast<GLsizei>(indices.size()); // set the sie of indeices (e.g. number of triangles) 36 indices 12 triangles
 
@@ -35,7 +37,7 @@ bool Mesh::Create(const std::vector<float>&vertices, const std::vector<unsigned 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo); // This VBO is now the current vertex buffer. uploads the actual vertex data.
 
     // copies our CPU vertex array into GPU-accessible memory.
-	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
 
     // uploads the indices.
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo); // telling the renderer which vertices form which triangles.
@@ -53,15 +55,15 @@ bool Mesh::Create(const std::vector<float>&vertices, const std::vector<unsigned 
     // layout(location = 1) in vec3 aNormal;
 
     // Attribute 0: position
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), nullptr);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<void*>(offsetof(Vertex, position)));
     glEnableVertexAttribArray(0);
 
     // Attribute 1: normal
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), reinterpret_cast<void*>(3 * sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<void*>(offsetof(Vertex, normal)));
     glEnableVertexAttribArray(1);
 
     // Attribute 2: UV
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), reinterpret_cast<void*>(6 * sizeof(float)));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<void*>(offsetof(Vertex, texCoord)));
     glEnableVertexAttribArray(2);
 
     // VBO memory

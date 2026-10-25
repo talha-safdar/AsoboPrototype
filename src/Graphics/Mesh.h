@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Vertex.h"
+
 #include <glad/gl.h>
 #include <vector>
 
@@ -20,7 +22,7 @@ public:
 	* indices  → EBO // which vertices should be connected
 	* layout   → VAO // configuration describing how vertex data should be interpreted.
 	*/
-	bool Create(const std::vector<float>& vertices, const std::vector<unsigned int>& indices);
+	bool Create(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
 
 	/*
 	* Bind VAO

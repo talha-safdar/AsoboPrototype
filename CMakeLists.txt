@@ -34,7 +34,9 @@ add_executable (AsoboPrototype
 "src/Navigation/Pathfinder.h" 
 "src/Navigation/Pathfinder.cpp" 
 "src/Graphics/Texture.h" 
-"src/Graphics/Texture.cpp")
+"src/Graphics/Texture.cpp" 
+"src/Graphics/Vertex.h"
+"src/Graphics/Vertex.cpp")
 
 # GLAD
 add_library(glad STATIC
