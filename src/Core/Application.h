@@ -10,6 +10,12 @@
 #include <SDL3/SDL.h>
 #include <glm/gtc/constants.hpp>
 
+enum class EnemyState
+{
+	Idle,
+	Chase
+};
+
 /*
 * It owns:
 * SDL lifecycle
@@ -135,4 +141,7 @@ private:
 	//GLuint m_shaderProgram = 0;
 
 	bool m_running;
+
+	glm::vec3 m_enemyPosition{ 0.0f, 0.0f, -10.0f };
+	EnemyState m_enemyState = EnemyState::Idle;
 };

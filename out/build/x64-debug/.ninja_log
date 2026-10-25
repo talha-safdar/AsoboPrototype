@@ -367,3 +367,7 @@
 358	1128	8146473572376692	CMakeFiles/AsoboPrototype.dir/src/Graphics/Mesh.cpp.obj	d338b4c555094c41
 349	3016	8146473572286152	CMakeFiles/AsoboPrototype.dir/src/Core/Application.cpp.obj	707f63f92de23331
 3017	3595	8146473598962235	AsoboPrototype.exe	48ff62848f6f9bc7
+75	248	8146481652826513	C:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/CMakeFiles/cmake.verify_globs	e845d0735c183e35
+385	3614	8146481655922515	CMakeFiles/AsoboPrototype.dir/src/AsoboPrototype.cpp.obj	e007ed2e4410f686
+395	3973	8146481656022524	CMakeFiles/AsoboPrototype.dir/src/Core/Application.cpp.obj	707f63f92de23331
+3973	4622	8146481691800716	AsoboPrototype.exe	48ff62848f6f9bc7

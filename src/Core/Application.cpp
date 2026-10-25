@@ -341,6 +341,34 @@ void Application::Update()
 		m_isGrounded = true;
 	}
 
+
+
+
+	glm::vec3 toPlayer = m_playerPosition - m_enemyPosition; // Give me the vector from enemy → player.
+	float distanceToPlayer = glm::length(toPlayer); // How far away is the player?
+
+	const float detectionRange = 6.0f;
+	const float enemySpeed = 2.0f;
+
+	if (distanceToPlayer <= detectionRange)
+	{
+		m_enemyState = EnemyState::Chase;
+	}
+	else
+	{
+		m_enemyState = EnemyState::Idle;
+	}
+
+	if (m_enemyState == EnemyState::Chase && distanceToPlayer > 0.01f)
+	{
+		glm::vec3 directionToPlayer = glm::normalize(toPlayer);
+		directionToPlayer.y = 0.0f;
+		m_enemyPosition += directionToPlayer * enemySpeed * m_deltaTime; // moves the enemy toward you.
+	}
+
+
+
+
 	if (glm::length(movement) > 0.0f)
 	{
 		movement = glm::normalize(movement);
@@ -472,6 +500,13 @@ void Application::Render()
 	objectModel = glm::translate(objectModel, m_blueCubePosition);
 	m_shader->SetMat4("uModel", objectModel);
 	m_shader->SetVec3("uColor", glm::vec3(0.3f, 0.4f, 0.9f));
+	m_mesh->Draw();
+
+	// moving enemey
+	glm::mat4 enemyModel = glm::mat4(1.0f);
+	enemyModel = glm::translate(enemyModel, m_enemyPosition);
+	m_shader->SetMat4("uModel", enemyModel);
+	m_shader->SetVec3("uColor", glm::vec3(0.8f, 0.1f, 0.1f));
 	m_mesh->Draw();
 
 	SDL_GL_SwapWindow(m_window);
