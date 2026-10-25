@@ -189,3 +189,8 @@ float Enemy::GetYaw() const
 {
 	return m_yaw;
 }
+
+const std::vector<glm::vec3>& Enemy::GetPath() const
+{
+	return m_path;
+}

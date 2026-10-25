@@ -35,6 +35,7 @@ public:
 	const glm::vec3& GetPosition() const;
 	State GetState() const;
 	float GetYaw() const;
+	const std::vector<glm::vec3>& GetPath() const;
 
 private:
 	glm::vec3 m_position;

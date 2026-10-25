@@ -434,9 +434,23 @@ void Application::Render()
 	}
 	m_shader->SetMat4("uModel", enemyModel);
 	m_shader->SetVec3("uColor", enemyColor);
-
-
 	m_mesh->Draw();
+
+	// draw waypoints of pathfinding
+	const std::vector<glm::vec3>& enemyPath = m_enemy.GetPath();
+
+	for (const glm::vec3& waypoint : enemyPath)
+	{
+		glm::mat4 waypointModel = glm::mat4(1.0f);
+		waypointModel = glm::translate(waypointModel, waypoint + glm::vec3(0.0f, 0.05f, 0.0f));
+		waypointModel = glm::scale(waypointModel, glm::vec3(0.15f, 0.05f, 0.15f));
+
+		m_shader->SetMat4("uModel", waypointModel);
+		m_shader->SetVec3("uColor", glm::vec3(0.1f, 0.4f, 1.0f));
+		m_mesh->Draw();
+	}
+
+	//m_mesh->Draw();
 
 	SDL_GL_SwapWindow(m_window);
 }
