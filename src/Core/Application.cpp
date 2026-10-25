@@ -287,6 +287,25 @@ void Application::Update()
 		movement -= right;
 	}
 
+	const float gravity = -9.81f;
+	const float jumpVelocity = 5.5f;
+
+	if (keyboardState[SDL_SCANCODE_SPACE] && m_isGrounded)
+	{
+		m_verticalVelocity = jumpVelocity;
+		m_isGrounded = false;
+	}
+
+	m_verticalVelocity += gravity * m_deltaTime; // Gravity continuously changes vertical velocity downward.
+	m_playerPosition.y += m_verticalVelocity * m_deltaTime; // actually moves the player vertically.
+
+	if (m_playerPosition.y <= 0.0f)
+	{
+		m_playerPosition.y = 0.0f;
+		m_verticalVelocity = 0.0f;
+		m_isGrounded = true;
+	}
+
 	if (glm::length(movement) > 0.0f)
 	{
 		movement = glm::normalize(movement);

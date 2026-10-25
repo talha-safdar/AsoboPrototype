@@ -336,3 +336,7 @@
 360	3465	8146432975261617	CMakeFiles/AsoboPrototype.dir/src/AsoboPrototype.cpp.obj	e007ed2e4410f686
 369	3754	8146432975351627	CMakeFiles/AsoboPrototype.dir/src/Core/Application.cpp.obj	707f63f92de23331
 3754	4743	8146433009198546	AsoboPrototype.exe	48ff62848f6f9bc7
+67	217	8146436062514936	C:/GitHub/Personal/AsoboPrototype/out/build/x64-debug/CMakeFiles/cmake.verify_globs	e845d0735c183e35
+347	2843	8146436065327367	CMakeFiles/AsoboPrototype.dir/src/AsoboPrototype.cpp.obj	e007ed2e4410f686
+357	3175	8146436065427023	CMakeFiles/AsoboPrototype.dir/src/Core/Application.cpp.obj	707f63f92de23331
+3176	3773	8146436093603452	AsoboPrototype.exe	48ff62848f6f9bc7
