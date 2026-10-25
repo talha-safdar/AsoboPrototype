@@ -344,30 +344,13 @@ void Application::Update()
 
 
 
-	glm::vec3 toPlayer = m_playerPosition - m_enemyPosition; // Give me the vector from enemy → player.
-	float distanceToPlayer = glm::length(toPlayer); // How far away is the player?
+	//glm::vec3 toPlayer = m_playerPosition - m_enemyPosition; // Give me the vector from enemy → player.
+	//float distanceToPlayer = glm::length(toPlayer); // How far away is the player?
 
 	const float detectionRange = 6.0f;
 	const float enemySpeed = 2.0f;
 
-	if (distanceToPlayer <= detectionRange)
-	{
-		m_enemyState = EnemyState::Chase;
-	}
-	else
-	{
-		m_enemyState = EnemyState::Idle;
-	}
-
-	if (m_enemyState == EnemyState::Chase && distanceToPlayer > 0.01f)
-	{
-		glm::vec3 directionToPlayer = glm::normalize(toPlayer);
-		directionToPlayer.y = 0.0f;
-		m_enemyPosition += directionToPlayer * enemySpeed * m_deltaTime; // moves the enemy toward you.
-	}
-
-
-
+	m_enemy.Update(m_playerPosition, m_deltaTime);
 
 	if (glm::length(movement) > 0.0f)
 	{
@@ -458,11 +441,23 @@ void Application::Update()
 
 void Application::Render()
 {
+	// Shader = HOW to render
+	// Mesh = WHAT geometry exists
+	// Model matrix = WHERE that geometry exists
+
+	/*
+		Mesh = geometry/data
+		Shader = instructions for processing that data
+		Material = values/textures supplied to those instructions
+	*/
+
 	glClearColor(0.1f, 0.15f, 0.2f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear depth buffer and the colour buffer
 
 	m_shader->Bind(); // Use our shader program.
 
+
+	// They are extra values the shader needs for the current draw.
 	m_shader->SetVec3("uLightDirection", glm::vec3(-0.5f, 1.0f, 0.3f)); // Light is coming from above and slightly from one side.
 
 	// camera
@@ -478,7 +473,7 @@ void Application::Render()
 	playerModel = glm::scale(playerModel, glm::vec3(0.6f, 1.0f, 1.3f));
 	m_shader->SetMat4("uModel", playerModel);
 	m_shader->SetVec3("uColor", glm::vec3(1.0f, 0.5f, 0.2f));
-	m_mesh->Draw();
+	m_mesh->Draw(); // GPU, use this mesh configuration and draw triangles using these indices.
 
 	// floor
 	glm::mat4 floorModel = glm::mat4(1.0f);
@@ -502,9 +497,9 @@ void Application::Render()
 	m_shader->SetVec3("uColor", glm::vec3(0.3f, 0.4f, 0.9f));
 	m_mesh->Draw();
 
-	// moving enemey
+	// moving enemy
 	glm::mat4 enemyModel = glm::mat4(1.0f);
-	enemyModel = glm::translate(enemyModel, m_enemyPosition);
+	enemyModel = glm::translate(enemyModel, m_enemy.GetPosition());
 	m_shader->SetMat4("uModel", enemyModel);
 	m_shader->SetVec3("uColor", glm::vec3(0.8f, 0.1f, 0.1f));
 	m_mesh->Draw();

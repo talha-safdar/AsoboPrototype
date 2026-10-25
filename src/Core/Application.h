@@ -3,18 +3,13 @@
 #include "../Graphics/Shader.h"
 #include "../Graphics/Mesh.h"
 #include "../Gameplay/Camera.h"
+#include "../Gameplay/Enemy.h"
 
 #include <iostream>
 #include <glad/gl.h>
 #include <memory>
 #include <SDL3/SDL.h>
 #include <glm/gtc/constants.hpp>
-
-enum class EnemyState
-{
-	Idle,
-	Chase
-};
 
 /*
 * It owns:
@@ -142,6 +137,6 @@ private:
 
 	bool m_running;
 
-	glm::vec3 m_enemyPosition{ 0.0f, 0.0f, -10.0f };
-	EnemyState m_enemyState = EnemyState::Idle;
+	//glm::vec3 m_enemyPosition{ 0.0f, 0.0f, -10.0f };
+	Enemy m_enemy{ glm::vec3(0.0f, 0.0f, -10.0f) };
 };
