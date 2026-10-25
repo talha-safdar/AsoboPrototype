@@ -18,7 +18,9 @@ add_executable (AsoboPrototype
 "src/Core/Application.h" 
 "src/Core/Application.cpp"
 "src/Graphics/Shader.h"
-"src/Graphics/Shader.cpp")
+"src/Graphics/Shader.cpp" 
+"src/Graphics/Mesh.h" 
+"src/Graphics/Mesh.cpp")
 
 # GLAD
 add_library(glad STATIC

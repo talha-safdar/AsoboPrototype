@@ -1,9 +1,11 @@
 #pragma once
 
 #include "../Graphics/Shader.h"
+#include "../Graphics/Mesh.h"
 
 #include <iostream>
 #include <glad/gl.h>
+#include <memory>
 #include <SDL3/SDL.h>
 
 /*
@@ -35,7 +37,9 @@ private:
 	SDL_Window* m_window;
 	SDL_GLContext m_glContext;
 
-	Shader m_shader;
+	// Shader m_shader; // its destructor runs after the Application's
+	std::unique_ptr<Shader> m_shader;
+	std::unique_ptr<Mesh> m_mesh;
 
 	GLuint m_vao = 0;
 	GLuint m_vbo = 0;

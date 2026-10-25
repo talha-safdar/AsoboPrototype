@@ -57,7 +57,7 @@ bool Application::Initialize()
 
 bool Application::InitializeGraphics()
 {
-	float vertices[] =
+	std::vector<float> vertices =
 	{
 		// x      y      z
 		 0.5f,  0.5f,  0.0f,   // 0 top-right
@@ -66,11 +66,18 @@ bool Application::InitializeGraphics()
 		-0.5f,  0.5f,  0.0f    // 3 top-left
 	};
 
-	unsigned int indices[] =
+	std::vector<unsigned int> indices =
 	{
 		0, 1, 3,
 		1, 2, 3
 	};
+
+	m_mesh = std::make_unique<Mesh>();
+
+	if (!m_mesh->Create(vertices, indices))
+	{
+		return false;
+	}
 
 	// VBO = actual vertex data
 	// VAO = remembers how OpenGL should interpret that vertex data
@@ -80,18 +87,18 @@ bool Application::InitializeGraphics()
 	// VAO = remembers the vertex / index configuration
 
 	// create vertex array object
-	glGenVertexArrays(1, &m_vao);
-	glGenBuffers(1, &m_vbo);
-	glGenBuffers(1, &m_ebo);
+	//glGenVertexArrays(1, &m_vao);
+	//glGenBuffers(1, &m_vbo);
+	//glGenBuffers(1, &m_ebo);
 
 	// bind vertex array object
-	glBindVertexArray(m_vao);
+	//glBindVertexArray(m_vao);
 
-	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	//glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
+	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	// upload vertex data to GPU
 
@@ -126,42 +133,12 @@ bool Application::InitializeGraphics()
 		}
 	)";
 
-	if (!m_shader.Create(vertexShaderSource, fragmentShaderSource))
+	m_shader = std::make_unique<Shader>();
+
+	if (!m_shader->Create(vertexShaderSource, fragmentShaderSource))
 	{
 		return false;
 	}
-
-	//// compile vertex shader
-	//GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-
-	//// attach shader source code to shader object
-	//glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
-
-	//// compile vertex shader
-	//glCompileShader(vertexShader);
-
-	//// compile fragment shader
-	//GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-
-	//// attach shader source code to shader object
-	//glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
-
-	//// compile fragment shader
-	//glCompileShader(fragmentShader);
-
-	// create shader program
-	//m_shaderProgram = glCreateProgram();
-
-	// attach shaders to program
-	//glAttachShader(m_shaderProgram, vertexShader);
-	//glAttachShader(m_shaderProgram, fragmentShader);
-
-	// link shader program
-	//glLinkProgram(m_shaderProgram);
-
-	// delete shaders as they are no longer needed after linking
-	//glDeleteShader(vertexShader);
-//	glDeleteShader(fragmentShader);
 
 	return true;
 }
@@ -199,10 +176,10 @@ void Application::Render()
 	glClearColor(0.1f, 0.15f, 0.2f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	//glUseProgram(m_shaderProgram);
-	m_shader.Bind();
-	glBindVertexArray(m_vao);
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+	m_shader->Bind();
+	m_mesh->Draw();
+	//glBindVertexArray(m_vao);
+	//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 	SDL_GL_SwapWindow(m_window);
 }
@@ -211,11 +188,8 @@ void Application::Shutdown()
 {
 	m_running = false;
 
-	//if (m_shaderProgram)
-	//{
-	//	glDeleteProgram(m_shaderProgram);
-	//	m_shaderProgram = 0;
-	//}
+	m_mesh.reset(); // delete shader program
+	m_shader.reset(); // delete shader program
 
 	if (m_ebo)
 	{
