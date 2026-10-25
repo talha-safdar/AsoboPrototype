@@ -195,9 +195,11 @@ bool Application::InitializeGraphics()
 
 		out vec4 FragColor;
 
+		uniform vec3 uColor;
+
 		void main()
 		{
-			FragColor = vec4(1.0, 0.5, 0.2, 1.0);
+			FragColor = vec4(uColor, 1.0);
 		}
 	)";
 
@@ -260,25 +262,30 @@ void Application::Update()
 	const float movementSpeed = 3.0f;
 	const float movementAmount = movementSpeed * m_deltaTime;
 
+	glm::vec3 forward = m_camera.GetForward();
+	glm::vec3 right = m_camera.GetRight();
+
 	if (keyboardState[SDL_SCANCODE_W])
 	{
-		m_camera.MoveForward(movementAmount);
+		m_playerPosition += forward * movementAmount;
 	}
 
 	if (keyboardState[SDL_SCANCODE_S])
 	{
-		m_camera.MoveForward(-movementAmount);
+		m_playerPosition -= forward * movementAmount;
 	}
 
 	if (keyboardState[SDL_SCANCODE_D])
 	{
-		m_camera.MoveRight(movementAmount);
+		m_playerPosition += right * movementAmount;
 	}
 
 	if (keyboardState[SDL_SCANCODE_A])
 	{
-		m_camera.MoveRight(-movementAmount);
+		m_playerPosition -= right * movementAmount;
 	}
+
+	m_camera.Update(m_playerPosition);
 }
 
 void Application::Render()
@@ -288,24 +295,40 @@ void Application::Render()
 
 	m_shader->Bind(); // Use our shader program.
 
-	// model
-	glm::mat4 model = glm::mat4(1.0f);
-	model = glm::rotate(model, glm::radians(25.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	model = glm::rotate(model, glm::radians(-35.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-
-	// view
-	//glm::mat4 view = glm::mat4(1.0f);
-	//view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f)); // positioning the world 3 units away from the camera
-	glm::mat4 view = m_camera.GetViewMatrix();
-
-	// projection
+	// camera
+	glm::mat4 view = m_camera.GetViewMatrix(m_playerPosition); // camera needs to know what is following
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1280.0f / 720.0f, 0.1f, 100.0f); // FOV, Aspect, Near plane, Far plane
-
-	m_shader->SetMat4("uModel", model);
 	m_shader->SetMat4("uView", view);
 	m_shader->SetMat4("uProjection", projection);
 
-	m_mesh->Draw(); // Use the index buffer and draw triangles.
+	// player
+	glm::mat4 playerModel = glm::mat4(1.0f);
+	playerModel = glm::translate(playerModel, m_playerPosition);
+	m_shader->SetMat4("uModel", playerModel);
+	m_shader->SetVec3("uColor", glm::vec3(1.0f, 0.5f, 0.2f));
+	m_mesh->Draw();
+
+	// floor
+	glm::mat4 floorModel = glm::mat4(1.0f);
+	floorModel = glm::translate(floorModel, glm::vec3(0.0f, -0.55f, 0.0f));
+	floorModel = glm::scale(floorModel, glm::vec3(20.0f, 0.1f, 20.0f));
+	m_shader->SetMat4("uModel", floorModel);
+	m_shader->SetVec3("uColor", glm::vec3(0.25f, 0.25f, 0.25f));
+	m_mesh->Draw();
+
+	// green box
+	glm::mat4 objectModel = glm::mat4(1.0f);
+	objectModel = glm::translate(objectModel, glm::vec3(4.0f, 0.0f, -5.0f));
+	m_shader->SetMat4("uModel", objectModel);
+	m_shader->SetVec3("uColor", glm::vec3(0.2f, 0.7f, 0.3f));
+	m_mesh->Draw();
+
+	// blue box
+	objectModel = glm::mat4(1.0f);
+	objectModel = glm::translate(objectModel, glm::vec3(-4.0f, 0.0f, -8.0f));
+	m_shader->SetMat4("uModel", objectModel);
+	m_shader->SetVec3("uColor", glm::vec3(0.3f, 0.4f, 0.9f));
+	m_mesh->Draw();
 
 	SDL_GL_SwapWindow(m_window);
 }

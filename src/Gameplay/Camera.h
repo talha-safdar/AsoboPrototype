@@ -7,12 +7,11 @@ class Camera
 public:
 	Camera();
 
-	glm::mat4 GetViewMatrix() const;
-
-	void MoveForward(float amount);
-	void MoveRight(float amount);
-
+	void Update(const glm::vec3& target);
 	void ProcessMouseMovement(float xOffset, float yOffset);
+	glm::mat4 GetViewMatrix(const glm::vec3& target) const;
+	glm::vec3 GetForward() const;
+	glm::vec3 GetRight() const;
 
 private:
 	void UpdateVectors();
@@ -25,4 +24,5 @@ private:
 
 	float m_yaw;
 	float m_pitch;
+	float m_distance; // How far should the camera stay from the player?
 };

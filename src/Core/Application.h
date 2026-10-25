@@ -111,6 +111,8 @@ private:
 	std::unique_ptr<Shader> m_shader;
 	std::unique_ptr<Mesh> m_mesh;
 
+	glm::vec3 m_playerPosition{ 0.0f, 0.0f, 0.0f }; // Where does the player exist in the world?
+
 	float m_deltaTime;
 	Uint64 m_lastFrameTime;
 
