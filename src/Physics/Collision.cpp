@@ -44,3 +44,11 @@ bool Collision::LineIntersectsAABB(const glm::vec3& start, const glm::vec3& end,
 	hitDistance = tMin;
 	return true;
 }
+
+bool Collision::IntersectsXZ(const AABB& a, const AABB& b)
+{
+	bool overlapX = std::abs(a.position.x - b.position.x) < (a.halfSize.x + b.halfSize.x);
+	bool overlapZ = std::abs(a.position.z - b.position.z) < (a.halfSize.z + b.halfSize.z);
+
+	return overlapX && overlapZ;
+}

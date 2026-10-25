@@ -13,4 +13,6 @@ struct AABB
 namespace Collision
 {
 	bool LineIntersectsAABB(const glm::vec3& start, const glm::vec3& end, const AABB& box, float& hitDistance);
+
+	bool IntersectsXZ(const AABB& a, const AABB& b);
 }

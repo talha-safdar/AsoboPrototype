@@ -293,14 +293,9 @@ void Application::ProcessEvents()
 void Application::Update()
 {
 	const bool* keyboardState = SDL_GetKeyboardState(nullptr);
-	const float movementSpeed = 3.0f;
-	const float movementAmount = movementSpeed * m_deltaTime;
-
-	glm::vec3 previousPosition = m_playerPosition; // Player just moved inside a wall? then restore
-
+	glm::vec3 movement(0.0f);
 	glm::vec3 forward = m_camera.GetForward();
 	glm::vec3 right = m_camera.GetRight();
-	glm::vec3 movement(0.0f);
 
 	if (keyboardState[SDL_SCANCODE_W])
 	{
@@ -322,118 +317,13 @@ void Application::Update()
 		movement -= right;
 	}
 
-	const float gravity = -9.81f;
-	const float jumpVelocity = 5.5f;
+	bool jumpPressed = keyboardState[SDL_SCANCODE_SPACE];
 
-	if (keyboardState[SDL_SCANCODE_SPACE] && m_isGrounded)
-	{
-		m_verticalVelocity = jumpVelocity;
-		m_isGrounded = false;
-	}
+	m_player.Update(movement, jumpPressed, m_deltaTime, m_obstacles);
 
-	m_verticalVelocity += gravity * m_deltaTime; // Gravity continuously changes vertical velocity downward.
-	m_playerPosition.y += m_verticalVelocity * m_deltaTime; // actually moves the player vertically.
+	m_enemy.Update(m_player.GetPosition(), m_deltaTime, m_obstacles);
 
-	if (m_playerPosition.y <= 0.0f)
-	{
-		m_playerPosition.y = 0.0f;
-		m_verticalVelocity = 0.0f;
-		m_isGrounded = true;
-	}
-
-	const float detectionRange = 6.0f;
-	const float enemySpeed = 2.0f;
-
-	m_enemy.Update(m_playerPosition, m_deltaTime, m_obstacles);
-
-	if (glm::length(movement) > 0.0f)
-	{
-		movement = glm::normalize(movement);
-		m_playerDirection = movement;
-
-		float targetYaw = atan2(m_playerDirection.x, m_playerDirection.z);
-		float angleDifference = std::remainder(targetYaw - m_playerYaw, glm::two_pi<float>());
-		float rotationAmount = std::clamp(10.0f * m_deltaTime, 0.0f, 1.0f);
-
-		m_playerYaw += angleDifference * rotationAmount;
-
-		float cosYaw = std::abs(std::cos(m_playerYaw));
-		float sinYaw = std::abs(std::sin(m_playerYaw));
-
-		float halfX = (0.3f * cosYaw) + (0.65f * sinYaw);
-		float halfZ = (0.3f * sinYaw) + (0.65f * cosYaw);
-
-		glm::vec3 playerHalfSize(halfX, 0.5f, halfZ);
-		glm::vec3 obstacleHalfSize(0.5f, 0.5f, 0.5f);
-
-		m_playerPosition.x += movement.x * movementAmount;
-
-		bool hitGreenX = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[0].position, obstacleHalfSize);
-		bool hitBlueX = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[1].position, obstacleHalfSize);
-
-		if (hitGreenX || hitBlueX)
-		{
-			m_playerPosition.x = previousPosition.x;
-		}
-
-		m_playerPosition.z += movement.z * movementAmount;
-
-		bool hitGreenZ = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[0].position, obstacleHalfSize);
-		bool hitBlueZ = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[1].position, obstacleHalfSize);
-
-		if (hitGreenZ || hitBlueZ)
-		{
-			m_playerPosition.z = previousPosition.z;
-		}
-	}
-
-	glm::vec3 playerHalfSize(0.3f, 0.5f, 0.65f);
-	glm::vec3 obstacleHalfSize(0.5f, 0.5f, 0.5f);
-
-	bool hitGreen = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[0].position, obstacleHalfSize);
-	bool hitBlue = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[1].position, obstacleHalfSize);
-
-	if (hitGreen || hitBlue)
-	{
-		// undo the movement
-		m_playerPosition.x = previousPosition.x;
-		m_playerPosition.z = previousPosition.z;
-	}
-
-	m_camera.Update(m_playerPosition);
-
-	glm::vec3 target = m_playerPosition + glm::vec3(0.0f, 0.5f, 0.0f);
-	glm::vec3 desiredCameraPosition = m_camera.GetPosition();
-
-	float greenHitDistance = 0.0f;
-	float blueHitDistance = 0.0f;
-
-	AABB greenBox{ m_obstacles[0].position, glm::vec3(0.5f) };
-	AABB blueBox{ m_obstacles[1].position, glm::vec3(0.5f) };
-
-	bool hitGreen2 = Collision::LineIntersectsAABB(target, desiredCameraPosition, greenBox, greenHitDistance);
-	bool hitBlue2 = Collision::LineIntersectsAABB(target, desiredCameraPosition, blueBox, blueHitDistance);
-
-	float closestHit = glm::length(desiredCameraPosition - target);
-	bool cameraBlocked = false;
-
-	if (hitGreen2 && greenHitDistance < closestHit)
-	{
-		closestHit = greenHitDistance;
-		cameraBlocked = true;
-	}
-
-	if (hitBlue2 && blueHitDistance < closestHit)
-	{
-		closestHit = blueHitDistance;
-		cameraBlocked = true;
-	}
-
-	if (cameraBlocked)
-	{
-		glm::vec3 direction = glm::normalize(desiredCameraPosition - target);
-		m_camera.SetPosition(target + direction * (closestHit - 0.2f));
-	}
+	m_camera.Update(m_player.GetPosition());
 }
 
 void Application::Render()
@@ -458,15 +348,15 @@ void Application::Render()
 	m_shader->SetVec3("uLightDirection", glm::vec3(-0.5f, 1.0f, 0.3f)); // Light is coming from above and slightly from one side.
 
 	// camera
-	glm::mat4 view = m_camera.GetViewMatrix(m_playerPosition); // camera needs to know what is following
+	glm::mat4 view = m_camera.GetViewMatrix(m_player.GetPosition()); // camera needs to know what is following
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1280.0f / 720.0f, 0.1f, 100.0f); // FOV, Aspect, Near plane, Far plane
 	m_shader->SetMat4("uView", view);
 	m_shader->SetMat4("uProjection", projection);
 
 	// player
 	glm::mat4 playerModel = glm::mat4(1.0f);
-	playerModel = glm::translate(playerModel, m_playerPosition);
-	playerModel = glm::rotate(playerModel, m_playerYaw, glm::vec3(0.0f, 1.0f, 0.0f));
+	playerModel = glm::translate(playerModel, m_player.GetPosition());
+	playerModel = glm::rotate(playerModel, m_player.GetYaw(), glm::vec3(0.0f, 1.0f, 0.0f));
 	playerModel = glm::scale(playerModel, glm::vec3(0.6f, 1.0f, 1.3f));
 	m_shader->SetMat4("uModel", playerModel);
 	m_shader->SetVec3("uColor", glm::vec3(1.0f, 0.5f, 0.2f));
@@ -502,21 +392,6 @@ void Application::Render()
 	m_mesh->Draw();
 
 	SDL_GL_SwapWindow(m_window);
-}
-
-bool Application::CheckCollisionXZ(const glm::vec3& aPosition, const glm::vec3& aHalfSize, const glm::vec3& bPosition, const glm::vec3& bHalfSize) const
-{
-	/*
-		Are they overlapping on X?
-		AND
-		Are they overlapping on Z?
-
-		Yes + Yes = collision
-	*/
-	bool overlapX = std::abs(aPosition.x - bPosition.x) < (aHalfSize.x + bHalfSize.x);
-	bool overlapZ = std::abs(aPosition.z - bPosition.z) < (aHalfSize.z + bHalfSize.z);
-
-	return overlapX && overlapZ;
 }
 
 void Application::Shutdown()

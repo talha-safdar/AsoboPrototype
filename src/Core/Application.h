@@ -5,6 +5,7 @@
 #include "../Gameplay/Camera.h"
 #include "../Gameplay/Enemy.h"
 #include "../Physics/Collision.h"
+#include "../Gameplay/Player.h"
 
 #include <iostream>
 #include <glad/gl.h>
@@ -86,7 +87,7 @@ private:
 	*/
 	void Render();
 
-	bool CheckCollisionXZ(const glm::vec3& aPosition, const glm::vec3& aHalfSize, const glm::vec3& bPosition, const glm::vec3& bHalfSize) const;
+	//bool CheckCollisionXZ(const glm::vec3& aPosition, const glm::vec3& aHalfSize, const glm::vec3& bPosition, const glm::vec3& bHalfSize) const;
 
 	/*
 		stop loop
@@ -107,6 +108,7 @@ private:
 	SDL_Window* m_window;
 	SDL_GLContext m_glContext;
 	Camera m_camera;
+	Player m_player;
 
 	// unique_ptr is used to manage the lifetime of Shader and Mesh objects (ownership),
 	// ensuring they are properly deleted when the Application object is destroyed.
@@ -116,11 +118,11 @@ private:
 	std::unique_ptr<Shader> m_shader;
 	std::unique_ptr<Mesh> m_mesh;
 
-	glm::vec3 m_playerPosition{ 0.0f, 0.0f, 0.0f }; // Where does the player exist in the world?
-	glm::vec3 m_playerDirection{ 0.0f, 0.0f, -1.0f }; // which direction the player is facing.
-	float m_playerYaw = glm::pi<float>(); // left-right rotation
-	float m_verticalVelocity = 0.0f; // how fast vertically moving
-	bool m_isGrounded = true; // is standing on the floor
+	//glm::vec3 m_playerPosition{ 0.0f, 0.0f, 0.0f }; // Where does the player exist in the world?
+	//glm::vec3 m_playerDirection{ 0.0f, 0.0f, -1.0f }; // which direction the player is facing.
+	//float m_playerYaw = glm::pi<float>(); // left-right rotation
+	//float m_verticalVelocity = 0.0f; // how fast vertically moving
+	//bool m_isGrounded = true; // is standing on the floor
 
 	float m_deltaTime;
 	Uint64 m_lastFrameTime;
