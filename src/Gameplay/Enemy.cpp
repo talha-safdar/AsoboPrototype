@@ -4,39 +4,64 @@
 
 Enemy::Enemy(const glm::vec3& position) : 
 	m_position(position),
+	m_forward(0.0f, 0.0f, 1.0f),
 	m_state(State::Idle),
 	m_moveSpeed(2.0f),
 	m_detectionRange(6.0f),
-	m_attackRange(1.2f)
+	m_attackRange(1.2f),
+	m_fieldOfView(90.0f)
 {
 
 }
 
-void Enemy::Update(const glm::vec3 & playerPosition, float deltaTime)
+void Enemy::Update(const glm::vec3& playerPosition, float deltaTime, const std::vector<AABB>& obstacles)
 {
 	glm::vec3 toPlayer = playerPosition - m_position;
 	toPlayer.y = 0.0f;
 
 	float distanceToPlayer = glm::length(toPlayer);
 
+	if (distanceToPlayer > m_detectionRange || distanceToPlayer <= 0.001f) // Too far away → can't see you.
+	{
+		m_state = State::Idle;
+		return;
+	}
+
+	glm::vec3 directionToPlayer = glm::normalize(toPlayer);
+
+	float halfFov = glm::radians(m_fieldOfView * 0.5f);
+	float fovThreshold = std::cos(halfFov);
+	float facingAmount = glm::dot(m_forward, directionToPlayer); // Is the player actually in front of the enemy?
+
+	if (facingAmount < fovThreshold)
+	{
+		m_state = State::Idle;
+		return;
+	}
+
+	glm::vec3 enemyEye = m_position + glm::vec3(0.0f, 0.5f, 0.0f);
+	glm::vec3 playerTarget = playerPosition + glm::vec3(0.0f, 0.5f, 0.0f);
+
+	for (const AABB& obstacle : obstacles)
+	{
+		float hitDistance = 0.0f;
+
+		if (Collision::LineIntersectsAABB(enemyEye, playerTarget, obstacle, hitDistance))
+		{
+			m_state = State::Idle;
+			return;
+		}
+	}
+
 	if (distanceToPlayer <= m_attackRange)
 	{
 		m_state = State::Attack;
-	}
-	else if (distanceToPlayer <= m_detectionRange)
-	{
-		m_state = State::Chase;
-	}
-	else
-	{
-		m_state = State::Idle;
+		return;
 	}
 
-	if (m_state == State::Chase && distanceToPlayer > 0.001f)
-	{
-		glm::vec3 direction = glm::normalize(toPlayer);
-		m_position += direction * m_moveSpeed * deltaTime;
-	}
+	m_state = State::Chase;
+	m_forward = directionToPlayer;
+	m_position += directionToPlayer * m_moveSpeed * deltaTime;
 }
 
 const glm::vec3& Enemy::GetPosition() const

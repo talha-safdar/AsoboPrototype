@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Physics/Collision.h"
+
 #include <glm/glm.hpp>
 
 /*
@@ -23,7 +25,7 @@ public:
 public:
 	Enemy(const glm::vec3& position);
 
-	void Update(const glm::vec3& playerPosition, float deltaTime);
+	void Update(const glm::vec3& playerPosition, float deltaTime, const std::vector<AABB>& obstacles);
 
 	const glm::vec3& GetPosition() const;
 	State GetState() const;
@@ -36,4 +38,7 @@ private:
 	float m_moveSpeed;
 	float m_detectionRange;
 	float m_attackRange;
+
+	glm::vec3 m_forward;
+	float m_fieldOfView;
 };

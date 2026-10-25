@@ -109,6 +109,16 @@ build CMakeFiles\AsoboPrototype.dir\src\Gameplay\Enemy.cpp.obj: CXX_COMPILER__As
   TARGET_PDB = AsoboPrototype.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\AsoboPrototype.dir
 
+build CMakeFiles\AsoboPrototype.dir\src\Physics\Collision.cpp.obj: CXX_COMPILER__AsoboPrototype_unscanned_Debug C$:\GitHub\Personal\AsoboPrototype\src\Physics\Collision.cpp || cmake_object_order_depends_target_AsoboPrototype
+  CONFIG = Debug
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  INCLUDES = -IC:\GitHub\Personal\AsoboPrototype\out\build\x64-debug\external\SDL\include-revision -IC:\GitHub\Personal\AsoboPrototype\external\SDL\include -IC:\GitHub\Personal\AsoboPrototype\external\glad\include -IC:\GitHub\Personal\AsoboPrototype\external\glm
+  OBJECT_DIR = CMakeFiles\AsoboPrototype.dir
+  OBJECT_FILE_DIR = CMakeFiles\AsoboPrototype.dir\src\Physics
+  TARGET_COMPILE_PDB = CMakeFiles\AsoboPrototype.dir\
+  TARGET_PDB = AsoboPrototype.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\AsoboPrototype.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target AsoboPrototype
@@ -117,7 +127,7 @@ build CMakeFiles\AsoboPrototype.dir\src\Gameplay\Enemy.cpp.obj: CXX_COMPILER__As
 #############################################
 # Link the executable AsoboPrototype.exe
 
-build AsoboPrototype.exe: CXX_EXECUTABLE_LINKER__AsoboPrototype_Debug CMakeFiles\AsoboPrototype.dir\src\AsoboPrototype.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Core\Application.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Shader.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Mesh.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Gameplay\Camera.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Gameplay\Enemy.cpp.obj | external\SDL\SDL3-static.lib glad.lib external\glm\glm\glm.lib C$:\Program$ Files\Microsoft$ Visual$ Studio\18\Professional\VC\Tools\MSVC\14.51.36231\include\manifest\segmentheap.manifest || external\SDL\SDL3-static.lib external\glm\glm\glm.lib glad.lib
+build AsoboPrototype.exe: CXX_EXECUTABLE_LINKER__AsoboPrototype_Debug CMakeFiles\AsoboPrototype.dir\src\AsoboPrototype.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Core\Application.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Shader.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Graphics\Mesh.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Gameplay\Camera.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Gameplay\Enemy.cpp.obj CMakeFiles\AsoboPrototype.dir\src\Physics\Collision.cpp.obj | external\SDL\SDL3-static.lib glad.lib external\glm\glm\glm.lib C$:\Program$ Files\Microsoft$ Visual$ Studio\18\Professional\VC\Tools\MSVC\14.51.36231\include\manifest\segmentheap.manifest || external\SDL\SDL3-static.lib external\glm\glm\glm.lib glad.lib
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console

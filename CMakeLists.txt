@@ -25,7 +25,8 @@ add_executable (AsoboPrototype
 "src/Gameplay/Camera.cpp" 
 "src/Gameplay/Enemy.h" 
 "src/Gameplay/Enemy.cpp"
-)
+ "src/Physics/Collision.h"
+ "src/Physics/Collision.cpp")
 
 # GLAD
 add_library(glad STATIC

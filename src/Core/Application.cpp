@@ -341,16 +341,10 @@ void Application::Update()
 		m_isGrounded = true;
 	}
 
-
-
-
-	//glm::vec3 toPlayer = m_playerPosition - m_enemyPosition; // Give me the vector from enemy → player.
-	//float distanceToPlayer = glm::length(toPlayer); // How far away is the player?
-
 	const float detectionRange = 6.0f;
 	const float enemySpeed = 2.0f;
 
-	m_enemy.Update(m_playerPosition, m_deltaTime);
+	m_enemy.Update(m_playerPosition, m_deltaTime, m_obstacles);
 
 	if (glm::length(movement) > 0.0f)
 	{
@@ -374,8 +368,8 @@ void Application::Update()
 
 		m_playerPosition.x += movement.x * movementAmount;
 
-		bool hitGreenX = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_greenCubePosition, obstacleHalfSize);
-		bool hitBlueX = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_blueCubePosition, obstacleHalfSize);
+		bool hitGreenX = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[0].position, obstacleHalfSize);
+		bool hitBlueX = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[1].position, obstacleHalfSize);
 
 		if (hitGreenX || hitBlueX)
 		{
@@ -384,8 +378,8 @@ void Application::Update()
 
 		m_playerPosition.z += movement.z * movementAmount;
 
-		bool hitGreenZ = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_greenCubePosition, obstacleHalfSize);
-		bool hitBlueZ = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_blueCubePosition, obstacleHalfSize);
+		bool hitGreenZ = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[0].position, obstacleHalfSize);
+		bool hitBlueZ = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[1].position, obstacleHalfSize);
 
 		if (hitGreenZ || hitBlueZ)
 		{
@@ -396,8 +390,8 @@ void Application::Update()
 	glm::vec3 playerHalfSize(0.3f, 0.5f, 0.65f);
 	glm::vec3 obstacleHalfSize(0.5f, 0.5f, 0.5f);
 
-	bool hitGreen = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_greenCubePosition, obstacleHalfSize);
-	bool hitBlue = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_blueCubePosition, obstacleHalfSize);
+	bool hitGreen = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[0].position, obstacleHalfSize);
+	bool hitBlue = CheckCollisionXZ(m_playerPosition, playerHalfSize, m_obstacles[1].position, obstacleHalfSize);
 
 	if (hitGreen || hitBlue)
 	{
@@ -414,8 +408,11 @@ void Application::Update()
 	float greenHitDistance = 0.0f;
 	float blueHitDistance = 0.0f;
 
-	bool hitGreen2 = LineIntersectsAABB(target, desiredCameraPosition, m_greenCubePosition, obstacleHalfSize, greenHitDistance);
-	bool hitBlue2 = LineIntersectsAABB(target, desiredCameraPosition, m_blueCubePosition, obstacleHalfSize, blueHitDistance);
+	AABB greenBox{ m_obstacles[0].position, glm::vec3(0.5f) };
+	AABB blueBox{ m_obstacles[1].position, glm::vec3(0.5f) };
+
+	bool hitGreen2 = Collision::LineIntersectsAABB(target, desiredCameraPosition, greenBox, greenHitDistance);
+	bool hitBlue2 = Collision::LineIntersectsAABB(target, desiredCameraPosition, blueBox, blueHitDistance);
 
 	float closestHit = glm::length(desiredCameraPosition - target);
 	bool cameraBlocked = false;
@@ -485,14 +482,14 @@ void Application::Render()
 
 	// green box
 	glm::mat4 objectModel = glm::mat4(1.0f);
-	objectModel = glm::translate(objectModel, m_greenCubePosition);
+	objectModel = glm::translate(objectModel, m_obstacles[0].position);
 	m_shader->SetMat4("uModel", objectModel);
 	m_shader->SetVec3("uColor", glm::vec3(0.2f, 0.7f, 0.3f));
 	m_mesh->Draw();
 
 	// blue box
 	objectModel = glm::mat4(1.0f);
-	objectModel = glm::translate(objectModel, m_blueCubePosition);
+	objectModel = glm::translate(objectModel, m_obstacles[1].position);
 	m_shader->SetMat4("uModel", objectModel);
 	m_shader->SetVec3("uColor", glm::vec3(0.3f, 0.4f, 0.9f));
 	m_mesh->Draw();
@@ -520,49 +517,6 @@ bool Application::CheckCollisionXZ(const glm::vec3& aPosition, const glm::vec3& 
 	bool overlapZ = std::abs(aPosition.z - bPosition.z) < (aHalfSize.z + bHalfSize.z);
 
 	return overlapX && overlapZ;
-}
-
-bool Application::LineIntersectsAABB(const glm::vec3& start, const glm::vec3& end, const glm::vec3& boxPosition, const glm::vec3& boxHalfSize, float& hitDistance) const
-{
-	glm::vec3 direction = end - start;
-	float length = glm::length(direction);
-
-	if (length <= 0.0001f)
-		return false;
-
-	direction = glm::normalize(direction);
-
-	glm::vec3 boxMin = boxPosition - boxHalfSize;
-	glm::vec3 boxMax = boxPosition + boxHalfSize;
-
-	float tMin = 0.0f;
-	float tMax = length;
-
-	for (int axis = 0; axis < 3; ++axis)
-	{
-		if (std::abs(direction[axis]) < 0.0001f)
-		{
-			if (start[axis] < boxMin[axis] || start[axis] > boxMax[axis])
-				return false;
-
-			continue;
-		}
-
-		float t1 = (boxMin[axis] - start[axis]) / direction[axis];
-		float t2 = (boxMax[axis] - start[axis]) / direction[axis];
-
-		if (t1 > t2)
-			std::swap(t1, t2);
-
-		tMin = std::max(tMin, t1);
-		tMax = std::min(tMax, t2);
-
-		if (tMin > tMax)
-			return false;
-	}
-
-	hitDistance = tMin;
-	return true;
 }
 
 void Application::Shutdown()

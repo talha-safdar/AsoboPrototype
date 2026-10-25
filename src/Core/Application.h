@@ -4,6 +4,7 @@
 #include "../Graphics/Mesh.h"
 #include "../Gameplay/Camera.h"
 #include "../Gameplay/Enemy.h"
+#include "../Physics/Collision.h"
 
 #include <iostream>
 #include <glad/gl.h>
@@ -87,9 +88,6 @@ private:
 
 	bool CheckCollisionXZ(const glm::vec3& aPosition, const glm::vec3& aHalfSize, const glm::vec3& bPosition, const glm::vec3& bHalfSize) const;
 
-	// Does the line between player and camera pass through this box ?
-	bool LineIntersectsAABB(const glm::vec3& start, const glm::vec3& end, const glm::vec3& boxPosition, const glm::vec3& boxHalfSize, float& hitDistance) const;
-
 	/*
 		stop loop
 		↓
@@ -124,9 +122,6 @@ private:
 	float m_verticalVelocity = 0.0f; // how fast vertically moving
 	bool m_isGrounded = true; // is standing on the floor
 
-	glm::vec3 m_greenCubePosition{ 4.0f, 0.0f, -5.0f };
-	glm::vec3 m_blueCubePosition{ -4.0f, 0.0f, -8.0f };
-
 	float m_deltaTime;
 	Uint64 m_lastFrameTime;
 
@@ -139,4 +134,10 @@ private:
 
 	//glm::vec3 m_enemyPosition{ 0.0f, 0.0f, -10.0f };
 	Enemy m_enemy{ glm::vec3(0.0f, 0.0f, -10.0f) };
+
+	std::vector<AABB> m_obstacles
+	{
+		{ glm::vec3(4.0f, 0.0f, -5.0f), glm::vec3(0.5f) },
+		{ glm::vec3(-4.0f, 0.0f, -8.0f), glm::vec3(0.5f) }
+	};
 };
