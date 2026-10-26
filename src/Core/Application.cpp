@@ -101,12 +101,12 @@ bool Application::Initialize()
 
 	std::vector<glm::vec3> testPath = m_pathfinder.FindPath(m_navigationGrid, glm::vec3(0.0f, 0.0f, -10.0f), glm::vec3(0.0f, 0.0f, 0.0f));
 
-	std::cout << "Path waypoints: " << testPath.size() << std::endl;
+	//std::cout << "Path waypoints: " << testPath.size() << std::endl;
 
-	for (const glm::vec3& point : testPath)
-	{
-		std::cout << "Waypoint: " << point.x << ", " << point.z << std::endl;
-	}
+	//for (const glm::vec3& point : testPath)
+	//{
+		// std::cout << "Waypoint: " << point.x << ", " << point.z << std::endl;
+	//}
 
 
 	glm::ivec2 greenCell = m_navigationGrid.WorldToCell(m_obstacles[0].position);
@@ -127,7 +127,7 @@ bool Application::InitializeGraphics()
 
 	m_testModel = std::make_unique<Model>();
 
-	if (!m_testModel->Load("assets/models/BoxVertexColors.glb"))
+	if (!m_testModel->Load("assets/models/CarConcept.glb"))
 	{
 		return false;
 	}
@@ -305,6 +305,13 @@ bool Application::InitializeGraphics()
 	{
 		return false;
 	}
+
+	if (!m_testModel->Load("assets/models/CarConcept.glb"))
+	{
+		return false;
+	}
+
+	m_testModel->PrintParts();
 
 	return true;
 }
@@ -504,13 +511,12 @@ void Application::Render()
 	}
 
 	// 3d model
-	glm::mat4 testModel = glm::mat4(1.0f);
-	testModel = glm::translate(testModel, glm::vec3(2.0f, 0.0f, 2.0f));
-	m_shader->SetMat4("uModel", testModel);
-	m_shader->SetVec3("uColor", glm::vec3(0.8f));
+	glm::mat4 importedModel = glm::mat4(1.0f);
+	importedModel = glm::translate(importedModel, glm::vec3(2.0f, 0.0f, 2.0f));
+	m_shader->SetVec3("uColor", glm::vec3(0.8f, 0.8f, 0.8f));
 	m_shader->SetInt("uUseTexture", 0);
-
-	m_testModel->Draw();
+	//m_testModel->RotatePart("WheelFrontRRim", glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+	m_testModel->Draw(*m_shader, importedModel);
 
 	SDL_GL_SwapWindow(m_window);
 }

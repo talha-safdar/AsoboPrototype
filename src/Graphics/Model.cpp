@@ -1,13 +1,13 @@
-#include "Model.h"
-
 #define CGLTF_IMPLEMENTATION
 #include <cgltf.h>
 
 #include "Model.h"
+#include "Shader.h"
 #include "Vertex.h"
 
-#include <iostream>
+#include <glm/gtc/type_ptr.hpp>
 
+#include <iostream>
 
 bool Model::Load(const std::string& path)
 {
@@ -31,9 +31,35 @@ bool Model::Load(const std::string& path)
 		return false;
 	}
 
-	for (cgltf_size meshIndex = 0; meshIndex < data->meshes_count; ++meshIndex)
+	m_parts.clear();
+
+	std::cout << "Node count: " << data->nodes_count << std::endl;
+
+	for (cgltf_size nodeIndex = 0; nodeIndex < data->nodes_count; ++nodeIndex)
 	{
-		cgltf_mesh& gltfMesh = data->meshes[meshIndex];
+		// Go through every node in the GLB. If this node actually contains/references a mesh, load it.
+		cgltf_node& node = data->nodes[nodeIndex];
+
+		std::cout << "Node " << nodeIndex;
+
+		if (node.name)
+		{
+			std::cout << ": " << node.name;
+		}
+
+		std::cout << std::endl;
+
+		if (!node.mesh)
+		{
+			continue;
+		}
+
+		cgltf_float worldTransform[16];
+		cgltf_node_transform_world(&node, worldTransform);
+
+		glm::mat4 nodeTransform = glm::make_mat4(worldTransform);
+
+		cgltf_mesh& gltfMesh = *node.mesh;
 
 		for (cgltf_size primitiveIndex = 0; primitiveIndex < gltfMesh.primitives_count; ++primitiveIndex)
 		{
@@ -114,28 +140,74 @@ bool Model::Load(const std::string& path)
 					indices[index] = index;
 			}
 
-			auto mesh = std::make_unique<Mesh>();
+			ModelPart part;
+			part.name = node.name ? node.name : "Unnamed";
+			part.mesh = std::make_unique<Mesh>();
+			part.transform = nodeTransform;
 
-			if (!mesh->Create(vertices, indices))
+			if (!part.mesh->Create(vertices, indices))
 			{
 				std::cerr << "Failed to create mesh from model: " << path << std::endl;
 				cgltf_free(data);
 				return false;
 			}
 
-			m_meshes.push_back(std::move(mesh));
+			m_parts.push_back(std::move(part));
 		}
 	}
 
 	cgltf_free(data);
 
-	std::cout << "Loaded model: " << path << " | Meshes: " << m_meshes.size() << std::endl;
+	std::cout << "Loaded model: " << path << " | Parts: " << m_parts.size() << std::endl;
 
-	return !m_meshes.empty();
+	return !m_parts.empty();
 }
 
-void Model::Draw() const
+void Model::Draw(Shader& shader, const glm::mat4& modelMatrix) const
 {
-	for (const std::unique_ptr<Mesh>& mesh : m_meshes)
-		mesh->Draw();
+	for (const ModelPart& part : m_parts)
+	{
+		// glm::mat4 finalModel = modelMatrix * part.transform;
+		glm::mat4 finalModel = modelMatrix * part.transform * part.localTransform;
+
+		shader.SetMat4("uModel", finalModel);
+		part.mesh->Draw();
+	}
+}
+
+void Model::RotatePart(const std::string& name, float angle, const glm::vec3& axis)
+{
+	for (ModelPart& part : m_parts)
+	{
+		if (part.name == name)
+		{
+			part.localTransform = glm::rotate(glm::mat4(1.0f), angle, axis);
+			return;
+		}
+	}
+
+	std::cerr << "Model part not found: " << name << std::endl;
+}
+
+void Model::ResetPartTransform(const std::string & name)
+{
+	// usage: m_testModel->ResetPartTransform("RightArm");
+	for (ModelPart& part : m_parts)
+	{
+		if (part.name == name)
+		{
+			part.localTransform = glm::mat4(1.0f);
+			return;
+		}
+	}
+}
+
+void Model::PrintParts() const
+{
+	std::cout << "Model parts:" << std::endl;
+
+	for (const ModelPart& part : m_parts)
+	{
+		std::cout << " - " << part.name << std::endl;
+	}
 }
